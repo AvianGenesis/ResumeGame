@@ -7,7 +7,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     private float mouseOverPerc;
     private float mouseY;
-    private bool mouseOver = false;
+    private bool mouseOver;
     private Observer obs;
     private GameObject highlight;
     private Transform resumeZoomTF;
@@ -16,6 +16,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void Start()
     {
+        mouseOver = false;
         obs = GameObject.Find("Main Camera").GetComponent<Observer>();
         highlight = transform.GetChild(0).gameObject;
         resumeZoomTF = resumeZoomVP.transform.GetChild(0);
