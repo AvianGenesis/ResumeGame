@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Observer : MonoBehaviour
 {
+    private string sceneName;
     private float mouseX;
     private float mouseY;
     private Vector2 hotspot;
@@ -12,12 +14,13 @@ public class Observer : MonoBehaviour
 
     public GameObject leftHL;
     public GameObject rightHL;
+    public GameObject addInfoBox;
     public Button defaultButton;
     public Texture2D hand;
     public Texture2D glass;
     public Text title;
     public Text summary;
-    public Text fullInfo;
+    public Text addInfo;
     public Image preview;
 
     // Start is called before the first frame update
@@ -32,7 +35,6 @@ public class Observer : MonoBehaviour
     {
         mouseX = Input.mousePosition.x / Screen.width * 800.0f - 400.0f;
         mouseY = Input.mousePosition.y / Screen.height * 450.0f - 225.0f;
-        Debug.Log(mouseX);
 
         leftHL.SetActive(false);
         rightHL.SetActive(false);
@@ -50,12 +52,31 @@ public class Observer : MonoBehaviour
     }
 
     /* Update Info Pane */
-    public void UpdateInfo(string ttl, string summ, string fInfo, Sprite prev)
+    public void UpdateInfo(string sN, string ttl, string summ, string aInfo, Sprite prev)
     {
+        sceneName = sN;
         title.text = ttl;
         summary.text = summ;
-        //fullInfo.text = fInfo;
+        addInfo.text = aInfo;
         preview.sprite = prev;
+    }
+
+    public void ToggleAddInfo()
+    {
+        if (addInfoBox.activeSelf)
+        {
+            addInfoBox.SetActive(false);
+        }
+        else
+        {
+            addInfoBox.SetActive(true);
+        }
+    }
+
+    /* Launch Game */
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     /*********************/

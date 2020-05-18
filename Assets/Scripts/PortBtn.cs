@@ -7,9 +7,10 @@ public class PortBtn : MonoBehaviour
 {
     private Observer obs;
 
+    public string sceneName;
     public string title;
     public string summary;
-    public string fullInfo;
+    public string addInfo;
     public Sprite gamePreview;
 
     public void Awake()
@@ -20,16 +21,6 @@ public class PortBtn : MonoBehaviour
 
     public void UpdateInfo()
     {
-        obs.UpdateInfo(title, summary, fullInfo, gamePreview);
-    }
-
-    public void SetPointer()
-    {
-        obs.SetPointer();
-    }
-
-    public void SetHand()
-    {
-        obs.SetHand();
+        obs.UpdateInfo(sceneName, title, summary, addInfo, gamePreview);
     }
 }
