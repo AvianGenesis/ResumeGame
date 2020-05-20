@@ -16,12 +16,6 @@ public class GridPlayerControl : MonoBehaviour
         curGS = curSpace.GetComponent<GridSpace>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void UpdatePos(GameObject nextSpace)
     {
         curSpace = nextSpace;
