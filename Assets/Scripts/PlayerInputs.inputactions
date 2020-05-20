@@ -2,7 +2,7 @@
     "name": "PlayerInputs",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "GridMovement",
             "id": "f684f993-05de-4628-8b60-d870e31a16a1",
             "actions": [
                 {
@@ -45,7 +45,18 @@
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Default",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e48d738-029b-41de-84bf-44f9b2b87745",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -56,7 +67,18 @@
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Default",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c126daf-6e39-4862-ad24-aff39b7d08e9",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -67,7 +89,18 @@
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Default",
+                    "groups": "",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d329a51-aa23-46b2-b93c-eb3207502f81",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Left",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -78,7 +111,18 @@
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Default",
+                    "groups": "",
+                    "action": "Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15625e24-f3c3-47b7-82e6-a36d36736b62",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Right",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -86,11 +130,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Default",
-            "bindingGroup": "Default",
-            "devices": []
-        }
-    ]
+    "controlSchemes": []
 }
