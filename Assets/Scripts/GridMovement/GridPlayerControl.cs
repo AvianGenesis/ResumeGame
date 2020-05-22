@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class GridPlayerControl : MonoBehaviour
 {
+    private float step;
     private bool canMove;
+    private bool isMoving;
+    private Vector3 start;
+    private Vector3 end;
+    private GameObject nextSpace;
+    private Transform body;
     private GridSpace curGS;
     [SerializeField] private GameObject curSpace;
 
@@ -12,46 +18,71 @@ public class GridPlayerControl : MonoBehaviour
     void Start()
     {
         canMove = true;
-        transform.position = curSpace.transform.position;
+        isMoving = false;
+        body = transform.GetChild(0);
+        transform.position = curSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
         curGS = curSpace.GetComponent<GridSpace>();
     }
 
-    private void UpdatePos(GameObject nextSpace)
+    private void Update()
     {
-        curSpace = nextSpace;
-        transform.position = curSpace.transform.position;
-        curGS = curSpace.GetComponent<GridSpace>();
+        if (isMoving)
+        {
+            step += Time.deltaTime * 20.0f;
+            transform.position = Vector3.MoveTowards(start, end, step);
+            if(Vector3.Distance(transform.position, end) <= 0.01f)
+            {
+                isMoving = false;
+                step = 0.0f;
+                transform.position = end;
+                body.rotation = new Quaternion(0.0f, 180.0f, 0.0f, 0.0f);
+                curSpace = nextSpace;
+                curGS = curSpace.GetComponent<GridSpace>();
+            }
+        }
+    }
+
+    private void SetMoving()
+    {
+        isMoving = true;
+        start = curSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
+        end = nextSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
+        body.LookAt(end);
     }
 
     void OnUp()
     {
-        if(curGS.north != null)
+        if(curGS.north != null && !isMoving)
         {
-            UpdatePos(curGS.north);
+            nextSpace = curGS.north;
+            SetMoving();
         }
     }
 
     void OnDown()
     {
-        if (curGS.south != null)
+        if (curGS.south != null && !isMoving)
         {
-            UpdatePos(curGS.south);
+            nextSpace = curGS.south;
+            SetMoving();
         }
     }
 
     void OnLeft()
     {
-        if (curGS.west != null)
+        if (curGS.west != null && !isMoving)
         {
-            UpdatePos(curGS.west);
+            nextSpace = curGS.west;
+            SetMoving();
         }
     }
 
     void OnRight()
     {
-        if (curGS.east != null)
+        if (curGS.east != null && !isMoving)
         {
-            UpdatePos(curGS.east);
+            nextSpace = curGS.east;
+            SetMoving();
         }
     }
 }

@@ -110,8 +110,7 @@ public class PathCreator : MonoBehaviour
         GameObject line = path.transform.GetChild(0).gameObject;
         GameObject arrow = path.transform.GetChild(1).gameObject;
         line.transform.localScale = new Vector3(line.transform.localScale.x, line.transform.localScale.y, mid.magnitude);
-        arrow.transform.localPosition = new Vector3(0.0f, 0.0f, mid.magnitude / 2.0f - 1.5f);
-        Debug.Log(mid.magnitude);
+        arrow.transform.localPosition = new Vector3(0.0f, 0.0f, mid.magnitude / 2.0f - 2.3f);
         path.transform.position = start + (mid / 2.0f);
         path.transform.LookAt(end);
     }
