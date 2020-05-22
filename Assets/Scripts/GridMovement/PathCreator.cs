@@ -28,7 +28,7 @@ public class PathCreator : MonoBehaviour
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.SPath)
             {
-                //build one-way
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
@@ -45,7 +45,7 @@ public class PathCreator : MonoBehaviour
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.NPath)
             {
-                //build one-way
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
@@ -62,7 +62,7 @@ public class PathCreator : MonoBehaviour
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.EPath)
             {
-                //build one-way
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
@@ -79,7 +79,7 @@ public class PathCreator : MonoBehaviour
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.WPath)
             {
-                //build one-way
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
@@ -88,6 +88,32 @@ public class PathCreator : MonoBehaviour
             }
             CheckSpace(nextSpace);
         }
+    }
+
+    /* Attempt at arbitrating above code */
+    private void CheckPath(ref bool curPath, GameObject nextSpace, ref bool nextPath)
+    {
+        if (!curPath)
+        {
+            curPath = true;
+            if (nextPath)
+            {
+
+            }
+        }
+    }
+
+    private void BuildOneWay(Vector3 start, Vector3 end)
+    {
+        Vector3 mid = (end - start);
+        GameObject path = Instantiate(oneWay);
+        GameObject line = path.transform.GetChild(0).gameObject;
+        GameObject arrow = path.transform.GetChild(1).gameObject;
+        line.transform.localScale = new Vector3(line.transform.localScale.x, line.transform.localScale.y, mid.magnitude);
+        arrow.transform.localPosition = new Vector3(0.0f, 0.0f, mid.magnitude / 2.0f - 1.5f);
+        Debug.Log(mid.magnitude);
+        path.transform.position = start + (mid / 2.0f);
+        path.transform.LookAt(end);
     }
 
     private void BuildTwoWay(Vector3 start, Vector3 end)
