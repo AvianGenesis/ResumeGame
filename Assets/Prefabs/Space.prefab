@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8370293847589568618}
   - component: {fileID: 1715365391282927992}
   - component: {fileID: 1833768227439279272}
-  - component: {fileID: 5971749305903376448}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5971749305903376448
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131066959490405473}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &400778906249325752
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,8 +171,8 @@ GameObject:
   - component: {fileID: 4781597959188774167}
   - component: {fileID: 1678566340039674813}
   - component: {fileID: 4794888529822373301}
-  - component: {fileID: 7572324272259469746}
   - component: {fileID: 5804622617204150733}
+  - component: {fileID: 7572000370571349027}
   m_Layer: 0
   m_Name: Space
   m_TagString: Untagged
@@ -258,20 +243,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &7572324272259469746
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948165446490694116}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &5804622617204150733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,3 +259,16 @@ MonoBehaviour:
   south: {fileID: 0}
   west: {fileID: 0}
   east: {fileID: 0}
+--- !u!65 &7572000370571349027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948165446490694116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 3.5, z: 1.0000002}
+  m_Center: {x: 0, y: 0, z: 0}
