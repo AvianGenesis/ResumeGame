@@ -7,6 +7,7 @@ public class GridSpace : MonoBehaviour
 {
     private GameObject arrow;
 
+    public bool printPath;
     public bool NPath { get; set; }
     public bool SPath { get; set; }
     public bool WPath { get; set; }
@@ -26,6 +27,19 @@ public class GridSpace : MonoBehaviour
         EPath = SetPathBool(east);
         arrow = this.transform.GetChild(0).gameObject;
         MoveQueue = new Queue<char>();
+    }
+
+    private void Update()
+    {
+        if (printPath && MoveQueue.Count > 0)
+        {
+            int count = MoveQueue.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Debug.Log(MoveQueue.Dequeue() + "\n" + MoveQueue.Count);
+            }
+            Debug.Log("---------------");
+        }
     }
 
     private bool SetPathBool(GameObject direction)

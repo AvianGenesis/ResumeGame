@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class GridPlayerControl : MonoBehaviour
     private float step;
     private bool canMove;
     private bool isMoving;
+    private char[] directions;
     private Vector3 start;
     private Vector3 end;
     private GameObject nextSpace;
@@ -24,11 +26,13 @@ public class GridPlayerControl : MonoBehaviour
     {
         canMove = true;
         isMoving = false;
+        directions = new char[] { 'n', 's', 'w', 'e' };
         spaceStack = new Stack<GameObject>();
         rb = GetComponent<Rigidbody>();
         body = transform.GetChild(0);
         transform.position = curSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
         curGS = curSpace.GetComponent<GridSpace>();
+        FindSpaces(curSpace, moveCount, new Queue<char>());
     }
 
     private void FixedUpdate()
@@ -91,6 +95,76 @@ public class GridPlayerControl : MonoBehaviour
                 spaceStack.Push(curSpace);
                 SetMoving(next);
             }
+        }
+    }
+
+    /* Find spaces player can move to */
+    private void FindSpaces(GameObject space, int movesLeft, Queue<char> toPass, char prev = 'x')
+    {
+        GameObject nxt;
+        Queue<char> dirQueue = new Queue<char>(toPass);
+        if(prev != 'x')
+        {
+            dirQueue.Enqueue(prev);
+        }
+        if(movesLeft == 0)
+        {
+            space.transform.GetChild(0).gameObject.SetActive(true);
+            space.GetComponent<GridSpace>().MoveQueue = dirQueue;
+        }
+        else
+        {
+            foreach (char dir in directions)
+            {
+                nxt = CharToSpace(dir, space.GetComponent<GridSpace>());
+                if (dirQueue.Count > 0)
+                {
+                    if(OppChar(prev) != dir && nxt != null)
+                    {
+                        FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
+                    }
+                }
+                else if (nxt != null)
+                {
+                    FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
+                }
+            }
+        }
+    }
+
+    private GameObject CharToSpace(char dir, GridSpace gs)
+    {
+        switch (dir)
+        {
+            case ('n'):
+                return gs.north;
+            case ('s'):
+                return gs.south;
+            case ('w'):
+                return gs.west;
+            case ('e'):
+                return gs.east;
+            default:
+                Debug.LogError("CharToSpace incorrect input");
+                return null;
+        }
+    }
+
+    private char OppChar(char ch)
+    {
+        switch (ch)
+        {
+            case ('n'):
+                return 's';
+            case ('s'):
+                return 'n';
+            case ('w'):
+                return 'e';
+            case ('e'):
+                return 'w';
+            default:
+                Debug.LogError("OppChar incorrect input");
+                return 'x';
         }
     }
 

@@ -818,7 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5362ca8ec05769419bdbdba47cc3892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveCount: 6
+  moveCount: 10
   curSpace: {fileID: 629063274}
 --- !u!4 &1526221734
 Transform:
