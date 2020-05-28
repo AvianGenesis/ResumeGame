@@ -21,70 +21,70 @@ public class PathCreator : MonoBehaviour
         GridSpace curGS = curSpace.GetComponent<GridSpace>();
         GameObject nextSpace;
         GridSpace nextGS;
-        if (!curGS.NPath)
+        if (curGS.NPath && !curGS.nBuilt)
         {
-            curGS.NPath = true;
+            curGS.nBuilt = true;
             nextSpace = curGS.north;
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.SPath)
             {
-                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
+                nextGS.sBuilt = true;
+                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
-                nextGS.SPath = true;
-                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             CheckSpace(nextSpace);
         }
 
-        if (!curGS.SPath)
+        if (curGS.SPath && !curGS.sBuilt)
         {
-            curGS.SPath = true;
+            curGS.sBuilt = true;
             nextSpace = curGS.south;
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.NPath)
             {
-                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
+                nextGS.nBuilt = true;
+                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
-                nextGS.NPath = true;
-                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             CheckSpace(nextSpace);
         }
 
-        if (!curGS.WPath)
+        if (curGS.WPath && !curGS.wBuilt)
         {
-            curGS.WPath = true;
+            curGS.wBuilt = true;
             nextSpace = curGS.west;
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.EPath)
             {
-                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
+                nextGS.eBuilt = true;
+                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
-                nextGS.EPath = true;
-                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             CheckSpace(nextSpace);
         }
 
-        if (!curGS.EPath)
+        if (curGS.EPath && !curGS.eBuilt)
         {
-            curGS.EPath = true;
+            curGS.eBuilt = true;
             nextSpace = curGS.east;
             nextGS = nextSpace.GetComponent<GridSpace>();
             if (nextGS.WPath)
             {
-                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
+                nextGS.wBuilt = true;
+                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
             }
             else
             {
-                nextGS.WPath = true;
-                BuildTwoWay(curSpace.transform.position, nextSpace.transform.position);
+                BuildOneWay(curSpace.transform.position, nextSpace.transform.position);
             }
             CheckSpace(nextSpace);
         }

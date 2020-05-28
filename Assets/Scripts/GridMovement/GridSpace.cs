@@ -8,10 +8,14 @@ public class GridSpace : MonoBehaviour
     private GameObject arrow;
 
     public bool printPath;
-    public bool NPath { get; set; }
-    public bool SPath { get; set; }
-    public bool WPath { get; set; }
-    public bool EPath { get; set; }
+    public bool nBuilt;
+    public bool sBuilt;
+    public bool wBuilt;
+    public bool eBuilt;
+    public bool NPath;
+    public bool SPath;
+    public bool WPath;
+    public bool EPath;
     public Queue<char> MoveQueue { get; set; }
     public GameObject north;
     public GameObject south;
@@ -21,10 +25,6 @@ public class GridSpace : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        NPath = SetPathBool(north);
-        SPath = SetPathBool(south);
-        WPath = SetPathBool(west);
-        EPath = SetPathBool(east);
         arrow = this.transform.GetChild(0).gameObject;
         MoveQueue = new Queue<char>();
     }
@@ -54,8 +54,13 @@ public class GridSpace : MonoBehaviour
         }
     }
 
-    public void ToggleArrow()
+    public void ArrowOn()
     {
-        arrow.SetActive(!arrow.activeSelf);
+        arrow.SetActive(true);
+    }
+
+    public void ArrowOff()
+    {
+        arrow.SetActive(false);
     }
 }

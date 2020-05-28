@@ -14,7 +14,7 @@ public class GridPlayerControl : MonoBehaviour
     private Vector3 start;
     private Vector3 end;
     private GameObject nextSpace;
-    private Stack<GameObject> spaceStack;
+    private Stack<char> spaceStack;
     private Rigidbody rb;
     private Transform body;
     private RaycastHit hit;
@@ -27,7 +27,7 @@ public class GridPlayerControl : MonoBehaviour
         canMove = true;
         isMoving = false;
         directions = new char[] { 'n', 's', 'w', 'e' };
-        spaceStack = new Stack<GameObject>();
+        spaceStack = new Stack<char>();
         rb = GetComponent<Rigidbody>();
         body = transform.GetChild(0);
         transform.position = curSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
@@ -75,25 +75,27 @@ public class GridPlayerControl : MonoBehaviour
     }
 
     /* Monitor move count and direction */
-    private void CheckCount(GameObject next)
+    private void CheckCount(char next)
     {
-        if (!isMoving && next != null)
+        if (!isMoving && CharToSpace(next, curSpace.GetComponent<GridSpace>()) != null)
         {
+            Debug.Log("Should move");
             if (spaceStack.Count > 0)
             {
-                if (next == spaceStack.Peek())
+                Debug.Log("next: " + next + "\nPeek: " + spaceStack.Peek());
+                if (next == OppChar(spaceStack.Peek()))
                 {
                     moveCount++;
                     spaceStack.Pop();
-                    SetMoving(next);
+                    SetMoving(CharToSpace(next, curSpace.GetComponent<GridSpace>()));
                     return;
                 }
             }
-            if (moveCount > 0)
+            if (moveCount > 0 && CharToPath(next, curSpace.GetComponent<GridSpace>()))
             {
                 moveCount--;
-                spaceStack.Push(curSpace);
-                SetMoving(next);
+                spaceStack.Push(next);
+                SetMoving(CharToSpace(next, curSpace.GetComponent<GridSpace>()));
             }
         }
     }
@@ -109,7 +111,7 @@ public class GridPlayerControl : MonoBehaviour
         }
         if(movesLeft == 0)
         {
-            space.transform.GetChild(0).gameObject.SetActive(true);
+            space.GetComponent<GridSpace>().ArrowOn();
             space.GetComponent<GridSpace>().MoveQueue = dirQueue;
         }
         else
@@ -119,12 +121,12 @@ public class GridPlayerControl : MonoBehaviour
                 nxt = CharToSpace(dir, space.GetComponent<GridSpace>());
                 if (dirQueue.Count > 0)
                 {
-                    if(OppChar(prev) != dir && nxt != null)
+                    if(OppChar(prev) != dir && CharToPath(dir, space.GetComponent<GridSpace>()))
                     {
                         FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
                     }
                 }
-                else if (nxt != null)
+                else if (CharToPath(dir, space.GetComponent<GridSpace>()))
                 {
                     FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
                 }
@@ -147,6 +149,24 @@ public class GridPlayerControl : MonoBehaviour
             default:
                 Debug.LogError("CharToSpace incorrect input");
                 return null;
+        }
+    }
+
+    private bool CharToPath(char dir, GridSpace gs)
+    {
+        switch (dir)
+        {
+            case ('n'):
+                return gs.NPath;
+            case ('s'):
+                return gs.SPath;
+            case ('w'):
+                return gs.WPath;
+            case ('e'):
+                return gs.EPath;
+            default:
+                Debug.LogError("CharToSpace incorrect input");
+                return false;
         }
     }
 
@@ -174,21 +194,21 @@ public class GridPlayerControl : MonoBehaviour
     /*********/
     void OnUp()
     {
-        CheckCount(curGS.north);
+        CheckCount('n');
     }
 
     void OnDown()
     {
-        CheckCount(curGS.south);
+        CheckCount('s');
     }
 
     void OnLeft()
     {
-        CheckCount(curGS.west);
+        CheckCount('w');
     }
 
     void OnRight()
     {
-        CheckCount(curGS.east);
+        CheckCount('e');
     }
 }
