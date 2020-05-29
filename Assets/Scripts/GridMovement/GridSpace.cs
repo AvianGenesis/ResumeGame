@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GridSpace : MonoBehaviour
 {
-    private GameObject arrow;
+    [SerializeField] private GameObject arrow;
+    [SerializeField] private GameObject highlight;
 
-    public bool printPath;
     public bool nBuilt;
     public bool sBuilt;
     public bool wBuilt;
@@ -25,21 +25,8 @@ public class GridSpace : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        arrow = this.transform.GetChild(0).gameObject;
+        //arrow = this.transform.GetChild(0).gameObject;
         MoveQueue = new Queue<char>();
-    }
-
-    private void Update()
-    {
-        if (printPath && MoveQueue.Count > 0)
-        {
-            int count = MoveQueue.Count;
-            for (int i = 0; i < count; i++)
-            {
-                Debug.Log(MoveQueue.Dequeue() + "\n" + MoveQueue.Count);
-            }
-            Debug.Log("---------------");
-        }
     }
 
     private bool SetPathBool(GameObject direction)
@@ -62,5 +49,10 @@ public class GridSpace : MonoBehaviour
     public void ArrowOff()
     {
         arrow.SetActive(false);
+    }
+
+    public void ToggleHighlight()
+    {
+        highlight.SetActive(!highlight.activeSelf);
     }
 }
