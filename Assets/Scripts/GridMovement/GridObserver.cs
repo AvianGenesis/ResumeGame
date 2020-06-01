@@ -22,7 +22,7 @@ public class GridObserver : MonoBehaviour
         /* Detect when mouse hovers over space */
         if (Physics.Raycast(ray, out hit, 100))
         {
-            Debug.Log(hit.transform.gameObject.name);
+            //Debug.Log(hit.transform.gameObject.name);
             if(hit.transform.gameObject.tag.Equals("GridSpace") && prevHover != hit.transform.gameObject)
             {
                 prevHover = hit.transform.gameObject;
@@ -38,6 +38,17 @@ public class GridObserver : MonoBehaviour
         {
             prevHover.GetComponent<GridSpace>().ToggleHighlight();
             prevHover = null;
+        }
+    }
+
+    void OnClick()
+    {
+        Debug.Log("Click");
+        if(prevHover != null && prevHover.tag.Equals("GridSpace") && prevHover.GetComponent<GridSpace>().MoveQueue.Count > 0)
+        {
+            Debug.Log("Teleport");
+            Vector3 pos = prevHover.transform.position;
+            transform.position = new Vector3(pos.x, 1.1f, pos.z);
         }
     }
 }
