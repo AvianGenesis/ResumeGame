@@ -1113,6 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925981c07da907b4da03add5ea0805d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
+  glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
 --- !u!114 &428313118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,7 +1197,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1052005256}
+  m_TargetGraphic: {fileID: 428313120}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1416,7 +1418,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1052005256}
+  m_TargetGraphic: {fileID: 478458188}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -1480,6 +1482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925981c07da907b4da03add5ea0805d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
+  glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
 --- !u!114 &478458191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,8 +2788,6 @@ MonoBehaviour:
   rightHL: {fileID: 776897277}
   addInfoBox: {fileID: 806562364}
   defaultButton: {fileID: 1312671426}
-  hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
-  glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
   title: {fileID: 295402246}
   summary: {fileID: 480438827}
   addInfo: {fileID: 1377561933}
@@ -2875,18 +2877,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1052005256 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3251923713037285922, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3251923713411096767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1090643603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3660,7 @@ GameObject:
   - component: {fileID: 1937975815}
   - component: {fileID: 1937975814}
   - component: {fileID: 1937975817}
+  - component: {fileID: 1937975816}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -3734,6 +3725,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937975812}
   m_CullTransparentMesh: 0
+--- !u!114 &1937975816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937975812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925981c07da907b4da03add5ea0805d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
+  glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
 --- !u!114 &1937975817
 MonoBehaviour:
   m_ObjectHideFlags: 0

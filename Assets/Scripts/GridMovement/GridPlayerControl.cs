@@ -6,33 +6,34 @@ using UnityEngine;
 public class GridPlayerControl : MonoBehaviour
 {
     public int moveCount;
+    public bool isMoving;
+    public GameObject curSpace;
 
     private float step;
     private bool canMove;
-    private bool isMoving;
+    private bool manual;
     private char[] directions;
     private Vector3 start;
     private Vector3 end;
+    private GridObserver go;
     private GameObject nextSpace;
     private Stack<char> spaceStack;
-    private Rigidbody rb;
     private Transform body;
     private RaycastHit hit;
     private GridSpace curGS;
-    [SerializeField] private GameObject curSpace;
 
     // Start is called before the first frame update
     void Start()
     {
-        canMove = true;
         isMoving = false;
+        canMove = true;
+        manual = false;
         directions = new char[] { 'n', 's', 'w', 'e' };
+        go = GetComponent<GridObserver>();
         spaceStack = new Stack<char>();
-        rb = GetComponent<Rigidbody>();
         body = transform.GetChild(0);
         transform.position = curSpace.transform.position + new Vector3(0.0f, 1.1f, 0.0f);
         curGS = curSpace.GetComponent<GridSpace>();
-        FindSpaces(curSpace, moveCount, new Queue<char>());
     }
 
     private void FixedUpdate()
@@ -65,7 +66,7 @@ public class GridPlayerControl : MonoBehaviour
     }
 
     /* Trigger movement */
-    private void SetMoving(GameObject next)
+    public void SetMoving(GameObject next)
     {
         isMoving = true;
         nextSpace = next;
@@ -77,31 +78,31 @@ public class GridPlayerControl : MonoBehaviour
     /* Monitor move count and direction */
     private void CheckCount(char next)
     {
-        if (!isMoving && CharToSpace(next, curSpace.GetComponent<GridSpace>()) != null)
+        if (!isMoving && go.CharToSpace(next, curSpace.GetComponent<GridSpace>()) != null && manual)
         {
             Debug.Log("Should move");
             if (spaceStack.Count > 0)
             {
                 Debug.Log("next: " + next + "\nPeek: " + spaceStack.Peek());
-                if (next == OppChar(spaceStack.Peek()))
+                if (next == go.OppChar(spaceStack.Peek()))
                 {
                     moveCount++;
                     spaceStack.Pop();
-                    SetMoving(CharToSpace(next, curSpace.GetComponent<GridSpace>()));
+                    SetMoving(go.CharToSpace(next, curSpace.GetComponent<GridSpace>()));
                     return;
                 }
             }
-            if (moveCount > 0 && CharToPath(next, curSpace.GetComponent<GridSpace>()))
+            if (moveCount > 0 && go.CharToPath(next, curSpace.GetComponent<GridSpace>()))
             {
                 moveCount--;
                 spaceStack.Push(next);
-                SetMoving(CharToSpace(next, curSpace.GetComponent<GridSpace>()));
+                SetMoving(go.CharToSpace(next, curSpace.GetComponent<GridSpace>()));
             }
         }
     }
 
     /* Find spaces player can move to */
-    private void FindSpaces(GameObject space, int movesLeft, Queue<char> toPass, char prev = 'x')
+    public void FindSpaces(GameObject space, int movesLeft, Queue<char> toPass, char prev = 'x')
     {
         GameObject nxt;
         Queue<char> dirQueue = new Queue<char>(toPass);
@@ -118,15 +119,15 @@ public class GridPlayerControl : MonoBehaviour
         {
             foreach (char dir in directions)
             {
-                nxt = CharToSpace(dir, space.GetComponent<GridSpace>());
+                nxt = go.CharToSpace(dir, space.GetComponent<GridSpace>());
                 if (dirQueue.Count > 0)
                 {
-                    if(OppChar(prev) != dir && CharToPath(dir, space.GetComponent<GridSpace>()))
+                    if(go.OppChar(prev) != dir && go.CharToPath(dir, space.GetComponent<GridSpace>()))
                     {
                         FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
                     }
                 }
-                else if (CharToPath(dir, space.GetComponent<GridSpace>()))
+                else if (go.CharToPath(dir, space.GetComponent<GridSpace>()))
                 {
                     FindSpaces(nxt, movesLeft - 1, dirQueue, dir);
                 }
@@ -134,58 +135,14 @@ public class GridPlayerControl : MonoBehaviour
         }
     }
 
-    private GameObject CharToSpace(char dir, GridSpace gs)
+    public void SetManual()
     {
-        switch (dir)
-        {
-            case ('n'):
-                return gs.north;
-            case ('s'):
-                return gs.south;
-            case ('w'):
-                return gs.west;
-            case ('e'):
-                return gs.east;
-            default:
-                Debug.LogError("CharToSpace incorrect input");
-                return null;
-        }
+        manual = true;
     }
 
-    private bool CharToPath(char dir, GridSpace gs)
+    public void SetAutomatic()
     {
-        switch (dir)
-        {
-            case ('n'):
-                return gs.NPath;
-            case ('s'):
-                return gs.SPath;
-            case ('w'):
-                return gs.WPath;
-            case ('e'):
-                return gs.EPath;
-            default:
-                Debug.LogError("CharToSpace incorrect input");
-                return false;
-        }
-    }
-
-    private char OppChar(char ch)
-    {
-        switch (ch)
-        {
-            case ('n'):
-                return 's';
-            case ('s'):
-                return 'n';
-            case ('w'):
-                return 'e';
-            case ('e'):
-                return 'w';
-            default:
-                Debug.LogError("OppChar incorrect input");
-                return 'x';
-        }
+        manual = false;
     }
 
 

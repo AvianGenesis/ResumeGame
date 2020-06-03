@@ -9,15 +9,11 @@ public class Observer : MonoBehaviour
     private string sceneName;
     private float mouseX;
     private float mouseY;
-    private Vector2 hotspot;
-    private CursorMode cursorMode;
 
     public GameObject leftHL;
     public GameObject rightHL;
     public GameObject addInfoBox;
     public Button defaultButton;
-    public Texture2D hand;
-    public Texture2D glass;
     public Text title;
     public Text summary;
     public Text addInfo;
@@ -26,8 +22,6 @@ public class Observer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hotspot = Vector2.zero;
-        cursorMode = CursorMode.Auto;
         defaultButton.onClick.Invoke();
     }
 
@@ -77,23 +71,5 @@ public class Observer : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(sceneName);
-    }
-
-    /*********************/
-    /* Cursor Management */
-    /*********************/
-    public void SetPointer()
-    {
-        Cursor.SetCursor(null, hotspot, cursorMode);
-    }
-
-    public void SetHand()
-    {
-        Cursor.SetCursor(hand, hotspot, cursorMode);
-    }
-
-    public void SetGlass()
-    {
-        Cursor.SetCursor(glass, hotspot, cursorMode);
     }
 }

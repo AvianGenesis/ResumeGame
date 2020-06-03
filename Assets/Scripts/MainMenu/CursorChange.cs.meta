@@ -3,7 +3,9 @@ guid: 925981c07da907b4da03add5ea0805d1
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
+  - glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

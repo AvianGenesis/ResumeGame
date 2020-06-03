@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3251923713037285923}
   - component: {fileID: 66732268648510771}
   - component: {fileID: -508150363619360207}
-  - component: {fileID: 8742492608587868824}
+  - component: {fileID: 7051812326572090716}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -150,7 +150,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8742492608587868824}
+        - m_Target: {fileID: 7051812326572090716}
           m_MethodName: SetHand
           m_Mode: 1
           m_Arguments:
@@ -165,7 +165,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8742492608587868824}
+        - m_Target: {fileID: 7051812326572090716}
           m_MethodName: SetPointer
           m_Mode: 1
           m_Arguments:
@@ -193,7 +193,7 @@ MonoBehaviour:
   summary: 
   addInfo: 
   gamePreview: {fileID: 0}
---- !u!114 &8742492608587868824
+--- !u!114 &7051812326572090716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,6 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925981c07da907b4da03add5ea0805d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hand: {fileID: 2800000, guid: 1fce638e2d40afb4e9e0333dc6079c46, type: 3}
+  glass: {fileID: 2800000, guid: 79aa7e320fe8d574eb3e40f3c3a18f5e, type: 3}
 --- !u!1 &3251923713429961210
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Observer obs;
     private GameObject highlight;
     private Transform resumeZoomTF;
+    private CursorChange cc;
 
     public GameObject resumeZoomVP;
 
@@ -19,6 +20,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         mouseOver = false;
         obs = GameObject.Find("Main Camera").GetComponent<Observer>();
         highlight = transform.GetChild(0).gameObject;
+        cc = GetComponent<CursorChange>();
         resumeZoomTF = resumeZoomVP.transform.GetChild(0);
     }
 
@@ -35,7 +37,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        obs.SetGlass();
+        cc.SetGlass();
         mouseOver = true;
         highlight.SetActive(true);
         resumeZoomVP.SetActive(true);
@@ -43,7 +45,7 @@ public class ResumeZoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        obs.SetPointer();
+        cc.SetPointer();
         mouseOver = false;
         highlight.SetActive(false);
         resumeZoomVP.SetActive(false);
