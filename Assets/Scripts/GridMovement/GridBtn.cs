@@ -22,6 +22,7 @@ public class GridBtn : MonoBehaviour
 
     public void Spin()
     {
+        obs.NewTurn();
         int rand = Random.Range(1, 7);
         Debug.Log(rand);
         obs.SetMoveCount(rand);
@@ -44,9 +45,20 @@ public class GridBtn : MonoBehaviour
         cc.SetPointer();
     }
 
+    public void ConfirmYes()
+    {
+        obs.TriggerYes();
+    }
+
+    public void ConfirmNo()
+    {
+        obs.TriggerNo();
+    }
+
     public void OnHover()
     {
         hintText.SetActive(true);
+        Debug.Log(btn.interactable);
         if (btn.interactable)
         {
             cc.SetHand();

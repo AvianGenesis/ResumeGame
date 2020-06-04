@@ -9,21 +9,25 @@ public class GridObserver : MonoBehaviour
     private int turnMoves;
     private bool isMoving;
     private bool manual;
+    private bool promptUp;
     private GridPlayerControl gpc;
     private GameObject prevHover;
     private GridSpace target;
     private RaycastHit hit;
     private Ray ray;
     private CursorChange cc;
+    [SerializeField] private GameObject ays;
     [SerializeField] private GridSpace[] gsArr;
     [SerializeField] private Button autoBtn;
     [SerializeField] private Button manBtn;
+    [SerializeField] private Button spinBtn;
 
     // Start is called before the first frame update
     void Start()
     {
         isMoving = false;
         manual = false;
+        promptUp = false;
         gpc = GetComponent<GridPlayerControl>();
         cc = GetComponent<CursorChange>();
     }
@@ -40,8 +44,17 @@ public class GridObserver : MonoBehaviour
             autoBtn.interactable = false;
         }
 
+        if(gpc.moveCount == 0 && !gpc.isMoving)
+        {
+            spinBtn.interactable = true;
+        }
+        else
+        {
+            spinBtn.interactable = false;
+        }
+
         /* Detect when mouse hovers over space */
-        if (!manual)
+        if (!manual && !promptUp)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 100) && !isMoving)
@@ -82,6 +95,16 @@ public class GridObserver : MonoBehaviour
         }
     }
 
+    public void NewTurn()
+    {
+        gpc.spaceStack = new Stack<char>();
+        foreach (GridSpace gs in gsArr)
+        {
+            gs.MoveQueue = new Queue<char>();
+            gs.ArrowOff();
+        }
+    }
+
     /* Button interactions */
     public void SetMoveCount(int count)
     {
@@ -104,19 +127,36 @@ public class GridObserver : MonoBehaviour
         gpc.SetAutomatic();
     }
 
+    public void TriggerYes()
+    {
+        gpc.spaceStack = new Stack<char>();
+        isMoving = true;
+        gpc.moveCount = 0;
+        ays.SetActive(false);
+        promptUp = false;
+        foreach (GridSpace gs in gsArr)
+        {
+            gs.ArrowOff();
+        }
+    }
+
+    public void TriggerNo()
+    {
+        target = null;
+        manBtn.interactable = true;
+        ays.SetActive(false);
+        promptUp = false;
+    }
+
     /* Input */
     void OnClick()
     {
-        if(prevHover != null && prevHover.tag.Equals("GridSpace") && prevHover.GetComponent<GridSpace>().MoveQueue.Count > 0)
+        if(prevHover != null && prevHover.tag.Equals("GridSpace") && prevHover.GetComponent<GridSpace>().MoveQueue.Count > 0 && !promptUp)
         {
-            isMoving = true;
-            gpc.moveCount = 0;
             target = prevHover.GetComponent<GridSpace>();
             manBtn.interactable = false;
-            foreach (GridSpace gs in gsArr)
-            {
-                gs.ArrowOff();
-            }
+            ays.SetActive(true);
+            promptUp = true;
         }
     }
 

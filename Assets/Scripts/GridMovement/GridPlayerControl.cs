@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridPlayerControl : MonoBehaviour
 {
     public int moveCount;
     public bool isMoving;
     public GameObject curSpace;
+    public Stack<char> spaceStack;
 
     private float step;
     private bool canMove;
@@ -17,10 +19,10 @@ public class GridPlayerControl : MonoBehaviour
     private Vector3 end;
     private GridObserver go;
     private GameObject nextSpace;
-    private Stack<char> spaceStack;
     private Transform body;
     private RaycastHit hit;
     private GridSpace curGS;
+    [SerializeField] private Text moves;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +65,8 @@ public class GridPlayerControl : MonoBehaviour
         {
             transform.Translate(new Vector3(0.0f, -hit.distance + 1.1f, 0.0f));
         }
+
+        moves.text = moveCount.ToString();
     }
 
     /* Trigger movement */
@@ -80,10 +84,9 @@ public class GridPlayerControl : MonoBehaviour
     {
         if (!isMoving && go.CharToSpace(next, curSpace.GetComponent<GridSpace>()) != null && manual)
         {
-            Debug.Log("Should move");
             if (spaceStack.Count > 0)
             {
-                Debug.Log("next: " + next + "\nPeek: " + spaceStack.Peek());
+                //Debug.Log("next: " + next + "\nPeek: " + spaceStack.Peek());
                 if (next == go.OppChar(spaceStack.Peek()))
                 {
                     moveCount++;
