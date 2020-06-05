@@ -12,6 +12,7 @@ public class GridObserver : MonoBehaviour
     private bool promptUp;
     private GridPlayerControl gpc;
     private GameObject prevHover;
+    private GameObject start;
     private GridSpace target;
     private RaycastHit hit;
     private Ray ray;
@@ -20,6 +21,7 @@ public class GridObserver : MonoBehaviour
     [SerializeField] private GridSpace[] gsArr;
     [SerializeField] private Button autoBtn;
     [SerializeField] private Button manBtn;
+    [SerializeField] private Button resBtn;
     [SerializeField] private Button spinBtn;
 
     // Start is called before the first frame update
@@ -35,9 +37,17 @@ public class GridObserver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(manual && gpc.moveCount == turnMoves)
+        if(manual)
         {
-            autoBtn.interactable = true;
+            if (gpc.moveCount == turnMoves)
+            {
+                autoBtn.interactable = true;
+                resBtn.interactable = false;
+            }
+            else
+            {
+                resBtn.interactable = true;
+            }
         }
         else
         {
@@ -98,6 +108,7 @@ public class GridObserver : MonoBehaviour
     public void NewTurn()
     {
         gpc.spaceStack = new Stack<char>();
+        start = gpc.curSpace;
         foreach (GridSpace gs in gsArr)
         {
             gs.MoveQueue = new Queue<char>();
@@ -115,6 +126,14 @@ public class GridObserver : MonoBehaviour
         autoBtn.interactable = true;
     }
 
+    public void ResetPos()
+    {
+        gpc.spaceStack = new Stack<char>();
+        gpc.curSpace = start;
+        gpc.moveCount = turnMoves;
+        gpc.transform.position = new Vector3(start.transform.position.x, start.transform.position.y + 1.1f, start.transform.position.z);
+    }
+
     public void SetManual()
     {
         manual = true;
@@ -124,6 +143,7 @@ public class GridObserver : MonoBehaviour
     public void SetAutomatic()
     {
         manual = false;
+        resBtn.interactable = false;
         gpc.SetAutomatic();
     }
 

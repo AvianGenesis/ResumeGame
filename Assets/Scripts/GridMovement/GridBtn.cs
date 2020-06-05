@@ -29,6 +29,11 @@ public class GridBtn : MonoBehaviour
         btn.interactable = false;
     }
 
+    public void ResetPos()
+    {
+        obs.ResetPos();
+    }
+
     public void SetManual()
     {
         obs.SetManual();
@@ -58,7 +63,6 @@ public class GridBtn : MonoBehaviour
     public void OnHover()
     {
         hintText.SetActive(true);
-        Debug.Log(btn.interactable);
         if (btn.interactable)
         {
             cc.SetHand();
