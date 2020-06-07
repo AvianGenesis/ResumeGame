@@ -674,7 +674,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -684,12 +684,17 @@ PrefabInstance:
     - target: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetManual
+      value: ResetPos
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_Interactable
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -876,6 +881,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 925981c07da907b4da03add5ea0805d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &389593866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 389593860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389593862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &403243493 stripped
@@ -2671,6 +2688,7 @@ MonoBehaviour:
   - {fileID: 1067686920}
   autoBtn: {fileID: 42849751}
   manBtn: {fileID: 1788735485}
+  resBtn: {fileID: 389593866}
   spinBtn: {fileID: 1940853817}
 --- !u!114 &1526221737
 MonoBehaviour:

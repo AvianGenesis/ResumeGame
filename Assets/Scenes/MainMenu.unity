@@ -1751,7 +1751,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -3821,7 +3821,7 @@ PrefabInstance:
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: sceneName
-      value: GridMove
+      value: GridMovement
       objectReference: {fileID: 0}
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
