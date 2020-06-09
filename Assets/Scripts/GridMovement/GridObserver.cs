@@ -10,15 +10,20 @@ public class GridObserver : MonoBehaviour
     private bool isMoving;
     private bool manual;
     private bool promptUp;
+    private bool dragging;
+    private Vector2 prevPos;
+    private Vector2 pos;
     private GridPlayerControl gpc;
     private GameObject prevHover;
     private GameObject start;
     private GridSpace target;
+    private GridSpace[] gsArr;
     private RaycastHit hit;
     private Ray ray;
     private CursorChange cc;
+    [SerializeField] private GameObject cam;
     [SerializeField] private GameObject ays;
-    [SerializeField] private GridSpace[] gsArr;
+    [SerializeField] private GameObject map;
     [SerializeField] private Button autoBtn;
     [SerializeField] private Button manBtn;
     [SerializeField] private Button resBtn;
@@ -27,11 +32,19 @@ public class GridObserver : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dragging = false;
+        prevPos = Input.mousePosition;
+        pos = Input.mousePosition;
         isMoving = false;
         manual = false;
         promptUp = false;
         gpc = GetComponent<GridPlayerControl>();
         cc = GetComponent<CursorChange>();
+        gsArr = new GridSpace[map.transform.childCount];
+        for (int i = 0; i < map.transform.childCount; i++)
+        {
+            gsArr[i] = map.transform.GetChild(i).gameObject.GetComponent<GridSpace>();
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +59,7 @@ public class GridObserver : MonoBehaviour
             }
             else
             {
+                autoBtn.interactable = false;
                 resBtn.interactable = true;
             }
         }
@@ -103,6 +117,14 @@ public class GridObserver : MonoBehaviour
                 }
             }
         }
+
+        if (dragging && !isMoving)
+        {
+            pos = Input.mousePosition;
+            Debug.Log(cam.transform.position);
+            cam.transform.Translate((prevPos.x - pos.x) * 0.1f, 0.0f, (prevPos.y - pos.y) * 0.1f, Space.World);
+            prevPos = Input.mousePosition;
+        }
     }
 
     public void NewTurn()
@@ -132,6 +154,7 @@ public class GridObserver : MonoBehaviour
         gpc.curSpace = start;
         gpc.moveCount = turnMoves;
         gpc.transform.position = new Vector3(start.transform.position.x, start.transform.position.y + 1.1f, start.transform.position.z);
+        ResetCam();
     }
 
     public void SetManual()
@@ -154,6 +177,7 @@ public class GridObserver : MonoBehaviour
         gpc.moveCount = 0;
         ays.SetActive(false);
         promptUp = false;
+        ResetCam();
         foreach (GridSpace gs in gsArr)
         {
             gs.ArrowOff();
@@ -168,6 +192,11 @@ public class GridObserver : MonoBehaviour
         promptUp = false;
     }
 
+    public void ResetCam()
+    {
+        cam.transform.localPosition = new Vector3(0.0f, 20.0f, -20.0f);
+    }
+
     /* Input */
     void OnClick()
     {
@@ -178,6 +207,15 @@ public class GridObserver : MonoBehaviour
             ays.SetActive(true);
             promptUp = true;
         }
+    }
+
+    void OnDrag()
+    {
+        if (!dragging)
+        {
+            prevPos = Input.mousePosition;
+        }
+        dragging = !dragging;
     }
 
     /*******************/

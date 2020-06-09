@@ -84,6 +84,7 @@ public class GridPlayerControl : MonoBehaviour
     {
         if (!isMoving && go.CharToSpace(next, curSpace.GetComponent<GridSpace>()) != null && manual)
         {
+            go.ResetCam();
             if (spaceStack.Count > 0)
             {
                 //Debug.Log("next: " + next + "\nPeek: " + spaceStack.Peek());

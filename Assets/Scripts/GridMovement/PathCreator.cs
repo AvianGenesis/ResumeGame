@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PathCreator : MonoBehaviour
 {
+    private RaycastHit hit;
     private GridSpace startGS;
     [SerializeField] private GameObject startSpace;
     [SerializeField] private GameObject oneWay;
