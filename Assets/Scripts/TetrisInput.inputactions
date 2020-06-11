@@ -1,112 +1,6 @@
 {
-    "name": "PlayerInput",
+    "name": "TetrisInput",
     "maps": [
-        {
-            "name": "Menu Controls",
-            "id": "81bb984b-bcf6-48bd-9bcd-d76df991a092",
-            "actions": [
-                {
-                    "name": "NavUp",
-                    "type": "Button",
-                    "id": "80285a17-7b5e-4c35-a5c0-07ddcadc20d2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "NavDown",
-                    "type": "Button",
-                    "id": "bf2d2fbc-e867-4b58-91c7-677bda3c6749",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Enter",
-                    "type": "Button",
-                    "id": "65f4894c-db76-475c-b80e-3eeb419abf34",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "GoTo4x4",
-                    "type": "Button",
-                    "id": "1a2c4b57-66b8-455f-8d6f-2f5e8947c4aa",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "38f94a22-ef9a-4cf0-98cd-ed7b6ce256b1",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "23790f22-dbd2-4241-a048-580b32e3c619",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavUp",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ea220be1-b3c4-42fd-8e34-75d8e96e17f1",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "472d30d6-7349-4c31-9e0a-c7de1c7e3724",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NavDown",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "50ec4c3e-4016-4072-a69a-73c679b214d0",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "Press(behavior=2)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Enter",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1bc3d125-8906-44da-9c12-60c448f3b9b4",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "GoTo4x4",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
         {
             "name": "In-Game Controls",
             "id": "2aeecc70-b280-48b2-a5d5-2b2bd996d7bd",
@@ -246,6 +140,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Press(pressPoint=1)"
+                },
+                {
+                    "name": "ToggleControl",
+                    "type": "Button",
+                    "id": "5d359ea4-4b43-40d7-b2ac-3e36976a3812",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1,behavior=2)"
                 }
             ],
             "bindings": [
@@ -253,6 +155,17 @@
                     "name": "",
                     "id": "0500c6de-74fe-46c4-b2eb-8bcfb60489e2",
                     "path": "<Gamepad>/rightStick/up",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9695c3b1-a255-40bc-bb62-bfbc7f10eccd",
+                    "path": "<Keyboard>/w",
                     "interactions": "Press(pressPoint=1)",
                     "processors": "",
                     "groups": "",
@@ -273,8 +186,30 @@
                 },
                 {
                     "name": "",
+                    "id": "18d32ea6-58b1-4ee9-9ed7-8fbbfcaf6bca",
+                    "path": "<Keyboard>/s",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "396c3ab7-3bc9-4b2a-b7df-c251192b0b16",
                     "path": "<Gamepad>/rightStick/left",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15adec9f-fc88-4d15-b8ad-35e359897b9c",
+                    "path": "<Keyboard>/a",
                     "interactions": "Press(pressPoint=1)",
                     "processors": "",
                     "groups": "",
@@ -295,9 +230,31 @@
                 },
                 {
                     "name": "",
+                    "id": "631143d4-ba3e-4204-b651-6adba308e136",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "4ff2ae3e-3a44-4288-8e2d-56da4a90cea5",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TiltLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdae91ae-3a3d-48ae-98a1-3314f2d004e1",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press(pressPoint=1)",
                     "processors": "",
                     "groups": "",
                     "action": "TiltLeft",
@@ -317,9 +274,31 @@
                 },
                 {
                     "name": "",
+                    "id": "eff6a571-b813-4578-982c-1c7135119974",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TiltRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "388a4130-5fa4-495d-ab70-93e59b84756e",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fde0cbf-f7c2-4c0e-ad54-bf17cb98beae",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MoveUp",
@@ -339,6 +318,17 @@
                 },
                 {
                     "name": "",
+                    "id": "294c101a-7443-4a78-97a5-00d9b65dcaf0",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "67dfd0ab-6df1-4ac6-a37e-a1854c3703b7",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "Press(pressPoint=1)",
@@ -350,9 +340,31 @@
                 },
                 {
                     "name": "",
+                    "id": "6908ea29-0abb-467f-b60f-72821cd691cc",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "597f4fc7-c9e7-4cd8-85fa-57a804ea20ae",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "Press(pressPoint=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "408e3bba-3caa-46e8-b6ea-f2a362f3e28c",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "MoveRight",
@@ -416,9 +428,31 @@
                 },
                 {
                     "name": "",
+                    "id": "9ca8c32a-b166-487f-b334-6502cecf0508",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "aa63292e-9080-40a9-a765-3072a1a7673f",
                     "path": "<Gamepad>/buttonEast",
-                    "interactions": "Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleCamProjection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce032f24-7bd7-49e5-9698-61e8e885b234",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ToggleCamProjection",
@@ -433,6 +467,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "FastFall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b752b22-fa3b-476d-b391-d690f26b231d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FastFall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "52496178-27d8-4a96-85af-cbc2fb996614",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleControl",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

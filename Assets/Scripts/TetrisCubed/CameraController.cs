@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour {
     /*******************/
     /* Camera Movement */
     /*******************/
-    void OnCycleRight() {
+    public void OnCycleRight() {
         timeCount = 0f;
         anchorFrom = parentTrans.rotation;
         camFrom = trans.localPosition;
@@ -87,7 +87,7 @@ public class CameraController : MonoBehaviour {
         }
         anchorTo = staticRot[currentPos-1].rotation;
     }
-    void OnCycleLeft() {
+    public void OnCycleLeft() {
         timeCount = 0f;
         anchorFrom = parentTrans.rotation;
         camFrom = trans.localPosition;
@@ -117,7 +117,7 @@ public class CameraController : MonoBehaviour {
         }
         anchorTo = staticRot[currentPos-1].rotation;
     }
-    void OnCycleUp() {
+    public void OnCycleUp() {
         if (currentPos <= 4) {
             timeCount = 0f;
             camFrom = trans.localPosition;
@@ -135,7 +135,7 @@ public class CameraController : MonoBehaviour {
             camTo = camPosUp;
         }
     }
-    void OnCycleDown() {
+    public void OnCycleDown() {
         if (currentPos >= 5 && currentPos <= 8) {
             timeCount = 0f;
             camFrom = trans.localPosition;

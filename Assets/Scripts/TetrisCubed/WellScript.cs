@@ -9,7 +9,6 @@ public class WellScript : MonoBehaviour
 {
     public int wellAreaDim;
     public GameObject tetroCube;
-    public Transform camtrans;
     public Text scoreLabel;
     public Text levelLabel;
     public Text fastFallLabel;
@@ -22,7 +21,7 @@ public class WellScript : MonoBehaviour
     public Color Vcol;
     public Color Zcol;
     public Color blankCol;
-    public GameManager gamemanager;
+    [NonSerialized] public Transform camtrans;
 
     private int planesCleared;
     private int pClearsFrame;
@@ -33,10 +32,12 @@ public class WellScript : MonoBehaviour
     private float stopCount;
     private bool fastFall;
     private bool isFull;
+    private bool conToggle;
     private Vector3 cubeLoc;
     private Vector3 wellVolume;
     private Vector3[] prevTetLocs;
     private Vector3[] shadowLocs;
+    private CameraController cc;
     private GameObject[,,] well;
     private Tetromino curBlock;
     private Tetromino nextBlock;
@@ -65,6 +66,8 @@ public class WellScript : MonoBehaviour
         wellVolume = new Vector3(wellAreaDim, 26, wellAreaDim);
         fastFall = false;
         isFull = true;
+        conToggle = false;
+        cc = this.gameObject.GetComponent<CameraController>();
 
         well = new GameObject[(int)wellVolume.x, (int)wellVolume.y, (int)wellVolume.z];
 
@@ -131,9 +134,6 @@ public class WellScript : MonoBehaviour
         NewBlock();
         NewBlock();
         DrawBlocks();
-
-        
-        gamemanager = GameObject.FindObjectOfType(typeof(GameManager)) as GameManager;
     }
 
     // Update is called once per frame
@@ -208,7 +208,7 @@ public class WellScript : MonoBehaviour
                 {
                     if(loc.y >= 21)
                     {
-                        SceneManager.LoadScene("endScene");
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                     }
                 }
                 NewBlock();
@@ -227,105 +227,6 @@ public class WellScript : MonoBehaviour
 
         }
 
-    }
-
-    /****************/
-    /* Player Input */
-    /****************/
-    void OnMoveUp()
-    {
-        DynamicMove(DiscreteCamDir2D('f'));
-    }
-
-    void OnMoveDown()
-    {
-        DynamicMove(-DiscreteCamDir2D('f'));
-    }
-
-    void OnMoveLeft()
-    {
-        DynamicMove(-DiscreteCamDir2D('r'));
-    }
-
-    void OnMoveRight()
-    {
-        DynamicMove(DiscreteCamDir2D('r'));
-    }
-
-    void DynamicMove(Vector3 v) {
-        if (v.x != 0) {
-            if (v.x > 0) {Move("mr");} //Move in positive x direction
-            else {Move("ml");} //Move in negative x direction
-        }
-        else if (v.z != 0) {
-            if (v.z > 0) {Move("mu");} //Move in positive z direction
-            else {Move("md");} //Move in negative z direction
-        }
-    }
-
-    void OnTiltLeft()//Rotate about forward
-    {
-        DynamicRotate(DiscreteCamDir('f'));
-    }
-
-    void OnTiltRight()//Rotate about forward
-    {
-        DynamicRotate(-DiscreteCamDir('f'));
-    }
-
-    void OnRotateUp()//Rotate about right
-    {
-        DynamicRotate(DiscreteCamDir('r'));
-    }
-
-    void OnRotateDown()//Rotate about right
-    {
-        DynamicRotate(-DiscreteCamDir('r'));
-    }
-
-    void OnRotateLeft()//Rotate about up
-    {
-        DynamicRotate(DiscreteCamDir('u'));
-    }
-
-    void OnRotateRight()//Rotate about up
-    {
-        DynamicRotate(-DiscreteCamDir('u'));
-    }
-
-    void DynamicRotate(Vector3 v) {
-        if(v.y == 0 && v.z == 0) {
-            if(v.x > 0) {Move("ru");}
-            else {Move("rd");}
-        }
-        else if(v.x == 0 && v.z == 0) {
-            if(v.y > 0) {Move("rl");}
-            else {Move("rr");}
-        }
-        else if(v.x == 0 && v.y == 0) {
-            if(v.z > 0) {Move("tl");}
-            else {Move("tr");}
-        }
-    }
-
-    void OnFastFall() //If South button is held, block falls faster
-    {
-        fastFall = !fastFall;
-        if (fastFall)
-        {
-            fallSpeed = 0.1f;
-            fastFallLabel.fontStyle = FontStyle.Bold;
-        }
-        else
-        {
-            fallSpeed = 0.75f;
-            fastFallLabel.fontStyle = FontStyle.Normal;
-        }
-    }
-
-    public void OnRestart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     /********************/
@@ -620,6 +521,145 @@ public class WellScript : MonoBehaviour
             if (v.y > 0) {return new Vector3(0,1,0);}
             else return new Vector3(0,-1,0);
         }
+    }
+
+    /****************/
+    /* Player Input */
+    /****************/
+    void OnMoveUp()
+    {
+        DynamicMove(DiscreteCamDir2D('f'));
+    }
+
+    void OnMoveDown()
+    {
+        DynamicMove(-DiscreteCamDir2D('f'));
+    }
+
+    void OnMoveLeft()
+    {
+        DynamicMove(-DiscreteCamDir2D('r'));
+    }
+
+    void OnMoveRight()
+    {
+        DynamicMove(DiscreteCamDir2D('r'));
+    }
+
+    void DynamicMove(Vector3 v)
+    {
+        if (v.x != 0)
+        {
+            if (v.x > 0) { Move("mr"); } //Move in positive x direction
+            else { Move("ml"); } //Move in negative x direction
+        }
+        else if (v.z != 0)
+        {
+            if (v.z > 0) { Move("mu"); } //Move in positive z direction
+            else { Move("md"); } //Move in negative z direction
+        }
+    }
+
+    void OnTiltLeft()//Rotate about forward
+    {
+        DynamicRotate(DiscreteCamDir('f'));
+    }
+
+    void OnTiltRight()//Rotate about forward
+    {
+        DynamicRotate(-DiscreteCamDir('f'));
+    }
+
+    void OnRotateUp()//Rotate about right
+    {
+        if (conToggle)
+        {
+            cc.OnCycleUp();
+        }
+        else
+        {
+            DynamicRotate(DiscreteCamDir('r'));
+        }
+    }
+
+    void OnRotateDown()//Rotate about right
+    {
+        if (conToggle)
+        {
+            cc.OnCycleDown();
+        }
+        else
+        {
+            DynamicRotate(-DiscreteCamDir('r'));
+        }
+    }
+
+    void OnRotateLeft()//Rotate about up
+    {
+        if (conToggle)
+        {
+            cc.OnCycleLeft();
+        }
+        else
+        {
+            DynamicRotate(DiscreteCamDir('u'));
+        }
+    }
+
+    void OnRotateRight()//Rotate about up
+    {
+        if (conToggle)
+        {
+            cc.OnCycleRight();
+        }
+        else
+        {
+            DynamicRotate(-DiscreteCamDir('u'));
+        }
+    }
+
+    void DynamicRotate(Vector3 v)
+    {
+        if (v.y == 0 && v.z == 0)
+        {
+            if (v.x > 0) { Move("ru"); }
+            else { Move("rd"); }
+        }
+        else if (v.x == 0 && v.z == 0)
+        {
+            if (v.y > 0) { Move("rl"); }
+            else { Move("rr"); }
+        }
+        else if (v.x == 0 && v.y == 0)
+        {
+            if (v.z > 0) { Move("tl"); }
+            else { Move("tr"); }
+        }
+    }
+
+    void OnFastFall() //If South button is held, block falls faster
+    {
+        fastFall = !fastFall;
+        if (fastFall)
+        {
+            fallSpeed = 0.1f;
+            fastFallLabel.fontStyle = FontStyle.Bold;
+        }
+        else
+        {
+            fallSpeed = 0.75f;
+            fastFallLabel.fontStyle = FontStyle.Normal;
+        }
+    }
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void OnToggleControl()
+    {
+        conToggle = !conToggle;
     }
 
     /* Debug */
