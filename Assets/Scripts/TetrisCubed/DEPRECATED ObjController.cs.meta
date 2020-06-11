@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 360df7d682eeab3469bac4aa3793e494
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - block1: {fileID: 1699426861743896640, guid: e384501e049478f4e9af27f690b6a325,
+      type: 3}
+  - block2: {fileID: 372811353023596932, guid: 64400b9e493e04443a02564d15c1e7fc, type: 3}
+  - block3: {fileID: 4604276390545215083, guid: ba551a399c4f2a04994a426277d809f1,
+      type: 3}
+  - block4: {fileID: 5068869889501763311, guid: b831b258301c51c49af7c6c42ba012fb,
+      type: 3}
+  - block5: {fileID: 8782647078440197529, guid: 75436c00d0873e546aa4ea1215679215,
+      type: 3}
+  - block6: {fileID: 8211542027769847628, guid: 778a4f7be3aea2c449486ae1b2c8357d,
+      type: 3}
+  - block7: {fileID: 5574831435030342755, guid: 3ff3c9ec0579f5348a0e3636acf6ec32,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
