@@ -518,7 +518,9 @@ PrefabInstance:
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: summary
-      value: Tetris Cubed Summary WIP
+      value: Tetris but 3D. A group project from my game dev class Spring of 2020. 
+        Our goal was to translate normal Tetris to 3D while keeping the controls
+        intuitive.
       objectReference: {fileID: 0}
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -533,8 +535,17 @@ PrefabInstance:
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: addInfo
-      value: Tetris Cubed More Info WIP
+      value: Unity's physics engine isn't the best at very specific, grid-based movement
+        so I ended up writing my own 3D Tetris engine in scripts. Unity, in turn,
+        ended up only being a graphical representation of what was going on behind
+        the scenes. Credit to Madeline Wilson for camera movement.
       objectReference: {fileID: 0}
+    - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+        type: 3}
+      propertyPath: gamePreview
+      value: 
+      objectReference: {fileID: 21300000, guid: d23230270d5172f44954fe9ad56d3ab6,
+        type: 3}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -573,7 +584,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -598,7 +609,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 108.5
+      value: 143.5
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -643,7 +654,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285925, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_Name
-      value: Button2
+      value: 3D Tetris
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c3ecd1e06a1ba47994a4461679c2e0, type: 3}
@@ -1054,8 +1065,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1992825499}
   - {fileID: 1094953406}
+  - {fileID: 1992825499}
   - {fileID: 1444864382}
   m_Father: {fileID: 470998756}
   m_RootOrder: 0
@@ -2393,6 +2404,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807227821}
   m_CullTransparentMesh: 0
+--- !u!114 &892068521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 187882333}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &894158623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,7 +2826,7 @@ MonoBehaviour:
   leftHL: {fileID: 1090643603}
   rightHL: {fileID: 776897277}
   addInfoBox: {fileID: 806562364}
-  defaultButton: {fileID: 1312671426}
+  defaultButton: {fileID: 892068521}
   title: {fileID: 295402246}
   summary: {fileID: 480438827}
   addInfo: {fileID: 1377561933}
@@ -3047,18 +3070,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165809112}
   m_CullTransparentMesh: 0
---- !u!114 &1312671426 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3251923713411096767}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1377561931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,7 +3294,7 @@ PrefabInstance:
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: title
-      value: Destiny-Style Inventory Screen
+      value: WIP
       objectReference: {fileID: 0}
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3398,7 +3409,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285925, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_Name
-      value: Button3
+      value: WIP
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c3ecd1e06a1ba47994a4461679c2e0, type: 3}
@@ -3879,17 +3890,17 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3899,7 +3910,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3924,12 +3935,12 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 143.5
+      value: 108.5
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 222.43
+      value: 222.42996
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3969,7 +3980,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285925, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_Name
-      value: Button1
+      value: DK Movement
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c3ecd1e06a1ba47994a4461679c2e0, type: 3}

@@ -86,6 +86,7 @@ public class CameraController : MonoBehaviour {
             }
         }
         anchorTo = staticRot[currentPos-1].rotation;
+        ActivateWalls();
     }
     public void OnCycleLeft() {
         timeCount = 0f;
@@ -116,6 +117,7 @@ public class CameraController : MonoBehaviour {
             }
         }
         anchorTo = staticRot[currentPos-1].rotation;
+        ActivateWalls();
     }
     public void OnCycleUp() {
         if (currentPos <= 4) {
@@ -134,6 +136,7 @@ public class CameraController : MonoBehaviour {
             anchorTo = staticRot[currentPos-1].rotation;
             camTo = camPosUp;
         }
+        ActivateWalls();
     }
     public void OnCycleDown() {
         if (currentPos >= 5 && currentPos <= 8) {
@@ -152,6 +155,7 @@ public class CameraController : MonoBehaviour {
             anchorTo = staticRot[currentPos-1].rotation;
             camTo = camPosDown;
         }
+        ActivateWalls();
     }
     void createPos() {
         camPosUp = new Vector3(0,0,23);

@@ -12,6 +12,7 @@ public class WellScript : MonoBehaviour
     public Text scoreLabel;
     public Text levelLabel;
     public Text fastFallLabel;
+    public Text rotateCamLabel;
     public Color Gcol;
     public Color Icol;
     public Color Jcol;
@@ -660,6 +661,14 @@ public class WellScript : MonoBehaviour
     void OnToggleControl()
     {
         conToggle = !conToggle;
+        if (conToggle)
+        {
+            rotateCamLabel.fontStyle = FontStyle.Bold;
+        }
+        else
+        {
+            rotateCamLabel.fontStyle = FontStyle.Normal;
+        }
     }
 
     /* Debug */
