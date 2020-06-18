@@ -12913,8 +12913,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.27, y: 0.63}
+  m_EdgeRadius: 0.18
 --- !u!50 &1313840677
 Rigidbody2D:
   serializedVersion: 4
@@ -12964,7 +12964,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: GridMovement
+  m_DefaultActionMap: MLMovement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1313840679

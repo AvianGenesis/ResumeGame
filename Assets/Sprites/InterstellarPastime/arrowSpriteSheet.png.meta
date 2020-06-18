@@ -1,0 +1,1076 @@
+fileFormatVersion: 2
+guid: 6b6e51eac46729146a0e3e856f119855
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5218530163493029342
+    second: arrowSpriteSheet_0
+  - first:
+      213: -6929491410351772687
+    second: arrowSpriteSheet_1
+  - first:
+      213: -184111012344112065
+    second: arrowSpriteSheet_2
+  - first:
+      213: 858513822220989397
+    second: arrowSpriteSheet_3
+  - first:
+      213: -508684490826835786
+    second: arrowSpriteSheet_4
+  - first:
+      213: -7600617915266874505
+    second: arrowSpriteSheet_5
+  - first:
+      213: -6075644393060341074
+    second: arrowSpriteSheet_6
+  - first:
+      213: 891913120044288055
+    second: arrowSpriteSheet_7
+  - first:
+      213: 2756401220688085084
+    second: arrowSpriteSheet_8
+  - first:
+      213: -6332428940248521587
+    second: arrowSpriteSheet_9
+  - first:
+      213: -3322376742345987947
+    second: arrowSpriteSheet_10
+  - first:
+      213: 6574871538429170495
+    second: arrowSpriteSheet_11
+  - first:
+      213: 2585407389844782796
+    second: arrowSpriteSheet_12
+  - first:
+      213: -4975432567056163978
+    second: arrowSpriteSheet_13
+  - first:
+      213: 7065563714233854459
+    second: arrowSpriteSheet_14
+  - first:
+      213: 7762962309673360360
+    second: arrowSpriteSheet_15
+  - first:
+      213: 2579615321934663403
+    second: arrowSpriteSheet_16
+  - first:
+      213: -4547460233739615232
+    second: arrowSpriteSheet_17
+  - first:
+      213: -8313070406411839269
+    second: arrowSpriteSheet_18
+  - first:
+      213: -6178027016202324717
+    second: arrowSpriteSheet_19
+  - first:
+      213: 5394112068440713141
+    second: arrowSpriteSheet_20
+  - first:
+      213: 5192231557963234478
+    second: arrowSpriteSheet_21
+  - first:
+      213: -4043070607600784286
+    second: arrowSpriteSheet_22
+  - first:
+      213: 8432557887073001763
+    second: arrowSpriteSheet_23
+  - first:
+      213: -1284537605027000777
+    second: arrowSpriteSheet_24
+  - first:
+      213: 3603492894012581405
+    second: arrowSpriteSheet_25
+  - first:
+      213: 4001786636602276377
+    second: arrowSpriteSheet_26
+  - first:
+      213: 3429809110774573269
+    second: arrowSpriteSheet_27
+  - first:
+      213: 8631020072710930716
+    second: arrowSpriteSheet_28
+  - first:
+      213: 6479019786032563437
+    second: arrowSpriteSheet_29
+  - first:
+      213: -3836392348793096874
+    second: arrowSpriteSheet_30
+  - first:
+      213: 2525938925359273013
+    second: arrowSpriteSheet_31
+  - first:
+      213: -1193954510724689099
+    second: arrowSpriteSheet_32
+  - first:
+      213: -717365956677341166
+    second: arrowSpriteSheet_33
+  - first:
+      213: -3915249983944516862
+    second: arrowSpriteSheet_34
+  - first:
+      213: 5580199228271045335
+    second: arrowSpriteSheet_35
+  - first:
+      213: -1782993618936378242
+    second: arrowSpriteSheet_36
+  - first:
+      213: -6592493443373257443
+    second: arrowSpriteSheet_37
+  - first:
+      213: 5474767845867238369
+    second: arrowSpriteSheet_38
+  - first:
+      213: -3081840668163669216
+    second: arrowSpriteSheet_39
+  - first:
+      213: 1917354313527193812
+    second: arrowSpriteSheet_40
+  - first:
+      213: 7124104690338003711
+    second: arrowSpriteSheet_41
+  - first:
+      213: 7965602794277589694
+    second: arrowSpriteSheet_42
+  - first:
+      213: 6534557376671171476
+    second: arrowSpriteSheet_43
+  - first:
+      213: 5320523423997462376
+    second: arrowSpriteSheet_44
+  - first:
+      213: 4020717451850332099
+    second: arrowSpriteSheet_45
+  - first:
+      213: -2393840691135035823
+    second: arrowSpriteSheet_46
+  - first:
+      213: 541146863090466306
+    second: arrowSpriteSheet_47
+  - first:
+      213: -8627317146206284064
+    second: arrowSpriteSheet_48
+  - first:
+      213: -4896139782168947024
+    second: arrowSpriteSheet_49
+  - first:
+      213: -152834750768354004
+    second: arrowSpriteSheet_50
+  - first:
+      213: -8855352327121118647
+    second: arrowSpriteSheet_51
+  - first:
+      213: -5815586356022055672
+    second: arrowSpriteSheet_52
+  - first:
+      213: -8286809083121830431
+    second: arrowSpriteSheet_53
+  - first:
+      213: -212825939540547209
+    second: arrowSpriteSheet_54
+  - first:
+      213: -7373989847246581615
+    second: arrowSpriteSheet_55
+  - first:
+      213: 1197561316365548203
+    second: arrowSpriteSheet_56
+  - first:
+      213: -4693579176205344736
+    second: arrowSpriteSheet_57
+  - first:
+      213: 2590498181884632898
+    second: arrowSpriteSheet_58
+  - first:
+      213: 8105567966062430025
+    second: arrowSpriteSheet_59
+  - first:
+      213: -5029077266435694113
+    second: arrowSpriteSheet_60
+  - first:
+      213: -5751372965245670618
+    second: arrowSpriteSheet_61
+  - first:
+      213: -1209052330767121958
+    second: arrowSpriteSheet_62
+  - first:
+      213: -3539651580413166237
+    second: arrowSpriteSheet_63
+  - first:
+      213: 8132698815056940885
+    second: arrowSpriteSheet_64
+  - first:
+      213: -2407177533883712612
+    second: arrowSpriteSheet_65
+  - first:
+      213: -1551361891596290026
+    second: arrowSpriteSheet_66
+  - first:
+      213: 5540431794902860121
+    second: arrowSpriteSheet_67
+  - first:
+      213: 1559939194272173657
+    second: arrowSpriteSheet_68
+  - first:
+      213: 889496789939684691
+    second: arrowSpriteSheet_69
+  - first:
+      213: -6045181282790227596
+    second: arrowSpriteSheet_70
+  - first:
+      213: 9026082435930079590
+    second: arrowSpriteSheet_71
+  - first:
+      213: 1436828613846168027
+    second: arrowSpriteSheet_72
+  - first:
+      213: -3329198746970866189
+    second: arrowSpriteSheet_73
+  - first:
+      213: -1552944431848050090
+    second: arrowSpriteSheet_74
+  - first:
+      213: 3624312251894310073
+    second: arrowSpriteSheet_75
+  - first:
+      213: -7467007372262064403
+    second: arrowSpriteSheet_76
+  - first:
+      213: -8945458483511802730
+    second: arrowSpriteSheet_77
+  - first:
+      213: -4002676248627076882
+    second: arrowSpriteSheet_78
+  - first:
+      213: 2652409889816717
+    second: arrowSpriteSheet_79
+  - first:
+      213: 2221020162481149619
+    second: arrowSpriteSheet_80
+  - first:
+      213: -5929497886864649481
+    second: arrowSpriteSheet_81
+  - first:
+      213: 6748065539510359402
+    second: arrowSpriteSheet_82
+  - first:
+      213: 4874247167078199139
+    second: arrowSpriteSheet_83
+  - first:
+      213: -352225311795443699
+    second: arrowSpriteSheet_84
+  - first:
+      213: -222726983556188399
+    second: arrowSpriteSheet_85
+  - first:
+      213: 4548618649559832653
+    second: arrowSpriteSheet_86
+  - first:
+      213: -1474752825725438345
+    second: arrowSpriteSheet_87
+  - first:
+      213: -2594212795479131455
+    second: arrowSpriteSheet_88
+  - first:
+      213: -7689927932968375056
+    second: arrowSpriteSheet_89
+  - first:
+      213: 6929966742680096931
+    second: arrowSpriteSheet_90
+  - first:
+      213: -5068404414606345266
+    second: arrowSpriteSheet_91
+  - first:
+      213: -1307260979973102331
+    second: arrowSpriteSheet_92
+  - first:
+      213: 4517519621271829799
+    second: arrowSpriteSheet_93
+  - first:
+      213: -7766474414272939354
+    second: arrowSpriteSheet_94
+  - first:
+      213: -3140338875422606286
+    second: arrowSpriteSheet_95
+  - first:
+      213: 1835881292942264145
+    second: arrowSpriteSheet_96
+  - first:
+      213: -9029511349044128530
+    second: arrowSpriteSheet_97
+  - first:
+      213: 7159135357634661057
+    second: arrowSpriteSheet_98
+  - first:
+      213: 5342083104234483186
+    second: arrowSpriteSheet_99
+  - first:
+      213: 7502250959993562430
+    second: arrowSpriteSheet_100
+  - first:
+      213: -5360844747316943682
+    second: arrowSpriteSheet_101
+  - first:
+      213: 5476924280253184326
+    second: arrowSpriteSheet_102
+  - first:
+      213: 4755534045822098614
+    second: arrowSpriteSheet_103
+  - first:
+      213: 1356130476050421591
+    second: arrowSpriteSheet_104
+  - first:
+      213: 1986383865543651562
+    second: arrowSpriteSheet_105
+  - first:
+      213: 2859941326681716606
+    second: arrowSpriteSheet_106
+  - first:
+      213: 6378745104334913857
+    second: arrowSpriteSheet_107
+  - first:
+      213: -7198027512593564276
+    second: arrowSpriteSheet_108
+  - first:
+      213: 534625129359040259
+    second: arrowSpriteSheet_109
+  - first:
+      213: 7491095087535531443
+    second: arrowSpriteSheet_110
+  - first:
+      213: -3208598196549673112
+    second: arrowSpriteSheet_111
+  - first:
+      213: 9092238817828100368
+    second: arrowSpriteSheet_112
+  - first:
+      213: -8661267198695286414
+    second: arrowSpriteSheet_113
+  - first:
+      213: 8449872334305262563
+    second: arrowSpriteSheet_114
+  - first:
+      213: -5477834529983844083
+    second: arrowSpriteSheet_115
+  - first:
+      213: 3586411905750785863
+    second: arrowSpriteSheet_116
+  - first:
+      213: 5988219652967613470
+    second: arrowSpriteSheet_117
+  - first:
+      213: 6553727109544837995
+    second: arrowSpriteSheet_118
+  - first:
+      213: -527305241764663939
+    second: arrowSpriteSheet_119
+  - first:
+      213: -3854148496407485035
+    second: arrowSpriteSheet_120
+  - first:
+      213: -4569935829109932716
+    second: arrowSpriteSheet_121
+  - first:
+      213: 6455321224056267280
+    second: arrowSpriteSheet_122
+  - first:
+      213: 6579527197648260432
+    second: arrowSpriteSheet_123
+  - first:
+      213: -7875386424118433110
+    second: arrowSpriteSheet_124
+  - first:
+      213: -8325062779678283622
+    second: arrowSpriteSheet_125
+  - first:
+      213: 5888559405637758063
+    second: arrowSpriteSheet_126
+  - first:
+      213: -1560051017213236060
+    second: arrowSpriteSheet_127
+  - first:
+      213: 2494544056101801836
+    second: arrowSpriteSheet_128
+  - first:
+      213: -1238981686192744732
+    second: arrowSpriteSheet_129
+  - first:
+      213: 4304418541761255093
+    second: arrowSpriteSheet_130
+  - first:
+      213: -2930031836268778960
+    second: arrowSpriteSheet_131
+  - first:
+      213: 4729986911635652162
+    second: arrowSpriteSheet_132
+  - first:
+      213: 3692409697611010061
+    second: arrowSpriteSheet_133
+  - first:
+      213: 6993807195078515140
+    second: arrowSpriteSheet_134
+  - first:
+      213: 9112596802896245215
+    second: arrowSpriteSheet_135
+  - first:
+      213: -4282787205944856834
+    second: arrowSpriteSheet_136
+  - first:
+      213: 253678583027092675
+    second: arrowSpriteSheet_137
+  - first:
+      213: 2366055889015961899
+    second: arrowSpriteSheet_138
+  - first:
+      213: -6951803304521125412
+    second: arrowSpriteSheet_139
+  - first:
+      213: 9053514508585998294
+    second: arrowSpriteSheet_140
+  - first:
+      213: -8571327447986907780
+    second: arrowSpriteSheet_141
+  - first:
+      213: -6149333943125144399
+    second: arrowSpriteSheet_142
+  - first:
+      213: 4833422125394664167
+    second: arrowSpriteSheet_143
+  - first:
+      213: 5748831350111126996
+    second: arrowSpriteSheet_144
+  - first:
+      213: 8593817919616982053
+    second: arrowSpriteSheet_145
+  - first:
+      213: -441845479297332448
+    second: arrowSpriteSheet_146
+  - first:
+      213: -7191831219403831572
+    second: arrowSpriteSheet_147
+  - first:
+      213: -2532223694175635518
+    second: arrowSpriteSheet_148
+  - first:
+      213: -4715569096265684842
+    second: arrowSpriteSheet_149
+  - first:
+      213: 5789737485701464052
+    second: arrowSpriteSheet_150
+  - first:
+      213: 7211024277112865340
+    second: arrowSpriteSheet_151
+  - first:
+      213: 115408296061812722
+    second: arrowSpriteSheet_152
+  - first:
+      213: 7954952201657579597
+    second: arrowSpriteSheet_153
+  - first:
+      213: 6451177047593661173
+    second: arrowSpriteSheet_154
+  - first:
+      213: 8400600783581348299
+    second: arrowSpriteSheet_155
+  - first:
+      213: 110766984634294944
+    second: arrowSpriteSheet_156
+  - first:
+      213: -2002991343872958761
+    second: arrowSpriteSheet_157
+  - first:
+      213: 4248267349453929596
+    second: arrowSpriteSheet_158
+  - first:
+      213: 7971082935795164117
+    second: arrowSpriteSheet_159
+  - first:
+      213: -7913985614297998448
+    second: arrowSpriteSheet_160
+  - first:
+      213: -7208602860541131888
+    second: arrowSpriteSheet_161
+  - first:
+      213: 8880620702908748250
+    second: arrowSpriteSheet_162
+  - first:
+      213: 5868028752286059713
+    second: arrowSpriteSheet_163
+  - first:
+      213: 3824526189096968812
+    second: arrowSpriteSheet_164
+  - first:
+      213: 1200633158778026835
+    second: arrowSpriteSheet_165
+  - first:
+      213: 7971924398531087470
+    second: arrowSpriteSheet_166
+  - first:
+      213: -3728671747498515212
+    second: arrowSpriteSheet_167
+  - first:
+      213: 2614261816742616831
+    second: arrowSpriteSheet_168
+  - first:
+      213: 4291756226493248937
+    second: arrowSpriteSheet_169
+  - first:
+      213: 5258028988039925432
+    second: arrowSpriteSheet_170
+  - first:
+      213: -6168319063479641756
+    second: arrowSpriteSheet_171
+  - first:
+      213: -3203611169434411820
+    second: arrowSpriteSheet_172
+  - first:
+      213: -1882916910087351456
+    second: arrowSpriteSheet_173
+  - first:
+      213: 6267654146049406874
+    second: arrowSpriteSheet_174
+  - first:
+      213: 6786843962524173395
+    second: arrowSpriteSheet_175
+  - first:
+      213: 2050110204316794754
+    second: arrowSpriteSheet_176
+  - first:
+      213: -4744188382270947486
+    second: arrowSpriteSheet_177
+  - first:
+      213: -2787200946961783625
+    second: arrowSpriteSheet_178
+  - first:
+      213: 488003442773085283
+    second: arrowSpriteSheet_179
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arrowSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a365b177e0497b0800000000000000
+      internalID: -5218530163493029342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fbacdbb64085df90800000000000000
+      internalID: -6929491410351772687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3cddfd7208e17df0800000000000000
+      internalID: -184111012344112065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d3be30d5cd0aeb00800000000000000
+      internalID: 858513822220989397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b81485962ac0f8f0800000000000000
+      internalID: -508684490826835786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7734c0f964e258690800000000000000
+      internalID: -7600617915266874505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa6b0a5d99feaba0800000000000000
+      internalID: -6075644393060341074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73800c2d146b06c00800000000000000
+      internalID: 891913120044288055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5001916e44b04620800000000000000
+      internalID: 2756401220688085084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d846513fd61be18a0800000000000000
+      internalID: -6332428940248521587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598a27e94fb84e1d0800000000000000
+      internalID: -3322376742345987947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3395eb34d2ae3b50800000000000000
+      internalID: 6574871538429170495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce3e5fa25631e320800000000000000
+      internalID: 2585407389844782796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b15b4f076b3fab0800000000000000
+      internalID: -4975432567056163978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf96ccc53cced0260800000000000000
+      internalID: 7065563714233854459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb93d837159bbb60800000000000000
+      internalID: 7762962309673360360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee0219c772acc320800000000000000
+      internalID: 2579615321934663403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0044cb9c20d24e0c0800000000000000
+      internalID: -4547460233739615232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd89209828a02ac80800000000000000
+      internalID: -8313070406411839269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arrowSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 9
+        height: 9
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3157e7e492d334aa0800000000000000
+      internalID: -6178027016202324717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
