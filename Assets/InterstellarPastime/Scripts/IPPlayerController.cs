@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IPPlayerController : MonoBehaviour
 {
-    [NonSerialized] public int bulCount;
 
     private float speed;
     private bool holdR;
@@ -13,6 +12,7 @@ public class IPPlayerController : MonoBehaviour
     private bool holdU;
     private bool holdD;
     private Rigidbody2D rb;
+    private Vector2 startPos;
     private Vector3 toAdd;
     private IPObserver obs;
     [SerializeField] private GameObject bullet;
@@ -21,12 +21,12 @@ public class IPPlayerController : MonoBehaviour
     void Start()
     {
         speed = 0.035f;
-        bulCount = 1;
         holdR = false;
         holdL = false;
         holdU = false;
         holdD = false;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        startPos = transform.position;
         obs = GameObject.Find("Main Camera").GetComponent<IPObserver>();
     }
 
@@ -77,9 +77,9 @@ public class IPPlayerController : MonoBehaviour
 
     void OnJump()
     {
-        if (bulCount > 0)
+        if (obs.bulCount > 0)
         {
-            bulCount--;
+            obs.SubBul();
             GameObject newBul = Instantiate(bullet);
             newBul.GetComponent<BulletController>().speed = 0.06f;
             newBul.transform.position = new Vector2(transform.position.x, transform.position.y + 0.1f);
@@ -92,7 +92,18 @@ public class IPPlayerController : MonoBehaviour
         {
             Destroy(collision.gameObject);
             obs.Hit();
-            //reset pos
+            ResetPos();
         }
+        else if (collision.gameObject.tag.Equals("Enemy"))
+        {
+            collision.gameObject.GetComponent<IPEnemyController>().Hit();
+            obs.Hit();
+            ResetPos();
+        }
+    }
+
+    private void ResetPos()
+    {
+        transform.position = startPos;
     }
 }

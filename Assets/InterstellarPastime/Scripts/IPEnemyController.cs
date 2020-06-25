@@ -9,11 +9,29 @@ public class IPEnemyController : MonoBehaviour
     [NonSerialized] public int hp;
 
     private IPObserver obs;
+    [SerializeField] private Color[] colors;
 
     // Start is called before the first frame update
     void Start()
     {
         obs = GameObject.Find("Main Camera").GetComponent<IPObserver>();
+    }
+
+    public void Initialize(int health)
+    {
+        hp = health;
+        switch (hp)
+        {
+            case 1: val = 100;
+                break;
+            case 2: val = 250;
+                break;
+            case 3: val = 450;
+                break;
+            default: Debug.LogError("Invalid HP");
+                break;
+        }
+        UpdateCol();
     }
 
     public void CreateEnemy(int health)
@@ -28,7 +46,14 @@ public class IPEnemyController : MonoBehaviour
         {
             obs.AddScore(val);
             Destroy(this.gameObject);
+            return;
         }
+        UpdateCol();
+    }
+
+    private void UpdateCol()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = colors[hp - 1];
     }
 
     public void MoveRight()
