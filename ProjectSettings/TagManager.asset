@@ -7,6 +7,10 @@ TagManager:
   - GridSpace
   - Bullet
   - Enemy
+  - BoundaryL
+  - BoundaryR
+  - Boundary
+  - EBullet
   layers:
   - Default
   - TransparentFX

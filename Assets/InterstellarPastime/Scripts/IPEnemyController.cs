@@ -8,8 +8,10 @@ public class IPEnemyController : MonoBehaviour
     [NonSerialized] public int val;
     [NonSerialized] public int hp;
 
+    private int cooldown;
     private IPObserver obs;
     [SerializeField] private Color[] colors;
+    [SerializeField] private GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -33,10 +35,11 @@ public class IPEnemyController : MonoBehaviour
         }
         UpdateCol();
     }
-
-    public void CreateEnemy(int health)
+    public void Shoot()
     {
-        hp = health;
+        GameObject newBul = Instantiate(bullet);
+        newBul.GetComponent<EnemyBulletController>().speed = -0.09f;
+        newBul.transform.position = new Vector2(transform.position.x, transform.position.y - 0.1f);
     }
 
     public void Hit()
@@ -45,10 +48,22 @@ public class IPEnemyController : MonoBehaviour
         if(hp <= 0)
         {
             obs.AddScore(val);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
             return;
         }
         UpdateCol();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("BoundaryL"))
+        {
+            obs.enemDir = 'r';
+        }
+        else if (collision.gameObject.tag.Equals("BoundaryR"))
+        {
+            obs.enemDir = 'l';
+        }
     }
 
     private void UpdateCol()

@@ -18,7 +18,7 @@ public class EnemyBulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.0f, -speed, 0.0f);
+        transform.Translate(0.0f, speed, 0.0f);
         if (transform.position.y < -5.2f)
         {
             Destroy(this.gameObject);

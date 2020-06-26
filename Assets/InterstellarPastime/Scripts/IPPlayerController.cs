@@ -12,7 +12,6 @@ public class IPPlayerController : MonoBehaviour
     private bool holdU;
     private bool holdD;
     private Rigidbody2D rb;
-    private Vector2 startPos;
     private Vector3 toAdd;
     private IPObserver obs;
     [SerializeField] private GameObject bullet;
@@ -20,13 +19,12 @@ public class IPPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 0.035f;
+        speed = 0.07f;
         holdR = false;
         holdL = false;
         holdU = false;
         holdD = false;
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        startPos = transform.position;
         obs = GameObject.Find("Main Camera").GetComponent<IPObserver>();
     }
 
@@ -34,19 +32,19 @@ public class IPPlayerController : MonoBehaviour
     void Update()
     {
         toAdd = Vector3.zero;
-        if (holdR)
+        if (holdR && transform.position.x < 5.6f)
         {
             toAdd += new Vector3(speed, 0.0f);
         }
-        if (holdL)
+        if (holdL && transform.position.x > -5.6f)
         {
             toAdd += new Vector3(-speed, 0.0f);
         }
-        if (holdU)
+        if (holdU && transform.position.y < -2.3f)
         {
             toAdd += new Vector3(0.0f, speed);
         }
-        if (holdD)
+        if (holdD && transform.position.y > -4.4f)
         {
             toAdd += new Vector3(0.0f, -speed);
         }
@@ -81,7 +79,7 @@ public class IPPlayerController : MonoBehaviour
         {
             obs.SubBul();
             GameObject newBul = Instantiate(bullet);
-            newBul.GetComponent<BulletController>().speed = 0.06f;
+            newBul.GetComponent<BulletController>().speed = 0.12f;
             newBul.transform.position = new Vector2(transform.position.x, transform.position.y + 0.1f);
         }
     }
@@ -102,8 +100,8 @@ public class IPPlayerController : MonoBehaviour
         }
     }
 
-    private void ResetPos()
+    public void ResetPos()
     {
-        transform.position = startPos;
+        transform.position = new Vector2(0, -4);
     }
 }
