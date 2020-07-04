@@ -209,7 +209,15 @@
                     "id": "fceb1594-f770-44fc-9ca3-1eefb816e800",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Beam",
+                    "type": "Button",
+                    "id": "070ddf72-76fa-402e-b88c-6c02960275f6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -309,6 +317,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cedc2b18-3120-47a4-8e72-c16870f6ed8e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Beam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

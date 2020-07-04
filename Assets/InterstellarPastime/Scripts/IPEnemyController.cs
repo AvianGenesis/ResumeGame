@@ -7,6 +7,7 @@ public class IPEnemyController : MonoBehaviour
 {
     [NonSerialized] public int val;
     [NonSerialized] public int hp;
+    [NonSerialized] public bool toDestroy;
 
     private int cooldown;
     private IPObserver obs;
@@ -47,8 +48,9 @@ public class IPEnemyController : MonoBehaviour
         hp--;
         if(hp <= 0)
         {
-            obs.AddScore(val);
+            toDestroy = true;
             this.gameObject.SetActive(false);
+            obs.AddScore(val);
             return;
         }
         UpdateCol();

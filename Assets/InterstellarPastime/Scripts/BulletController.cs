@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [NonSerialized] public float speed;
+    [NonSerialized] public char ch;
 
     private IPObserver obs;
 
@@ -21,7 +22,7 @@ public class BulletController : MonoBehaviour
         transform.Translate(0.0f, speed, 0.0f);
         if(transform.position.y > 5.2f)
         {
-            obs.AddBul();
+            obs.AddBul(ch);
             Destroy(this.gameObject);
         }
     }
@@ -31,14 +32,17 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.tag.Equals("EBullet"))
         {
             Destroy(collision.gameObject);
-            obs.AddBul();
+            obs.AddBul(ch);
             Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag.Equals("Enemy"))
         {
-            collision.gameObject.GetComponent<IPEnemyController>().Hit();
-            obs.AddBul();
-            Destroy(this.gameObject);
+            if (!collision.gameObject.GetComponent<IPEnemyController>().toDestroy)
+            {
+                collision.gameObject.GetComponent<IPEnemyController>().Hit();
+                obs.AddBul(ch);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
