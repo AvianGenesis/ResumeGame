@@ -584,7 +584,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -609,7 +609,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 143.5
+      value: 108.5
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -1065,9 +1065,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1444864382}
   - {fileID: 1094953406}
   - {fileID: 1992825499}
-  - {fileID: 1444864382}
   m_Father: {fileID: 470998756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2404,18 +2404,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807227821}
   m_CullTransparentMesh: 0
---- !u!114 &892068521 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 187882333}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &894158623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2814,7 @@ MonoBehaviour:
   leftHL: {fileID: 1090643603}
   rightHL: {fileID: 776897277}
   addInfoBox: {fileID: 806562364}
-  defaultButton: {fileID: 892068521}
+  defaultButton: {fileID: 989189170}
   title: {fileID: 295402246}
   summary: {fileID: 480438827}
   addInfo: {fileID: 1377561933}
@@ -2916,6 +2904,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989189170 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3251923713037285923, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1501718703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1090643603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,17 +3289,27 @@ PrefabInstance:
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: summary
-      value: Summary 3
+      value: Inspired by Space Invaders. This projected started as an assignment
+        in Java to learn some fundamentals of coding such as OOP, stacks/queues,
+        and graphical processing.
       objectReference: {fileID: 0}
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: title
-      value: WIP
+      value: Interstellar Pastime
       objectReference: {fileID: 0}
     - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: sceneName
-      value: DestinyInventory
+      value: InterstellarPastime
+      objectReference: {fileID: 0}
+    - target: {fileID: -508150363619360207, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
+        type: 3}
+      propertyPath: addInfo
+      value: Originally made using a graphical library in Java, having the low-level
+        control over every pixel in a frame was actually really convenient and fun
+        for this project. Porting to Unity as a higher-level engine, however, proved
+        to be a far more obtuse process than development of the original.
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3339,7 +3349,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3364,7 +3374,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 73.5
+      value: 143.5
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3409,7 +3419,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285925, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_Name
-      value: WIP
+      value: Interstellar Pastime
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8c3ecd1e06a1ba47994a4461679c2e0, type: 3}
@@ -3910,7 +3920,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
@@ -3935,7 +3945,7 @@ PrefabInstance:
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 108.5
+      value: 73.5
       objectReference: {fileID: 0}
     - target: {fileID: 3251923713037285924, guid: e8c3ecd1e06a1ba47994a4461679c2e0,
         type: 3}
