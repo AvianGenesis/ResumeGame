@@ -43,6 +43,7 @@ public class IPObserver : MonoBehaviour
     [SerializeField] private GameObject shieldObj;
     [SerializeField] private GameObject beamObj;
     [SerializeField] private GameObject uShotObj;
+    [SerializeField] private GameObject uShotHUD;
     [SerializeField] private GameObject moon;
     [SerializeField] private GameObject enemyObj;
     [SerializeField] private GameObject pBar;
@@ -150,21 +151,24 @@ public class IPObserver : MonoBehaviour
             }
 
             /* Incr Power */
-            if (power < 1.0f && !isDraining)
+            if (shield || beam)
             {
-                power += 1.0f / 600.0f;
+                if (power < 1.0f && !isDraining)
+                {
+                    power += 1.0f / 600.0f;
+                }
+                else if (power < 0.0f)
+                {
+                    isDraining = false;
+                }
+                else if (power >= 1.0f)
+                {
+                    pBarTick += (float)Math.PI / 60.0f;
+                    pBar.transform.position = new Vector2(pBar.transform.position.x, pBarStart + (float)Math.Sin(pBarTick) * 2.0f);
+                    barReady.SetActive(true);
+                }
+                pBarSlider.value = power;
             }
-            else if(power < 0.0f)
-            {
-                isDraining = false;
-            }
-            else if(power >= 1.0f)
-            {
-                pBarTick += (float)Math.PI / 60.0f;
-                pBar.transform.position = new Vector2(pBar.transform.position.x, pBarStart + (float)Math.Sin(pBarTick) * 2.0f);
-                barReady.SetActive(true);
-            }
-            pBarSlider.value = power;
         }
     }
 
@@ -190,8 +194,16 @@ public class IPObserver : MonoBehaviour
             }
             buffTick--;
         }
+        pointsText.gameObject.SetActive(true);
+        if(shield || beam)
+        {
+            pBar.SetActive(true);
+        }
+        if (uShot)
+        {
+            uShotHUD.SetActive(true);
+        }
         enemiesAlive = rows * cols; //change to 56 when boss here?
-        pBar.SetActive(true);
         pBarSlider.value = 0.0f;
         playerCon.gameObject.SetActive(true);
         shop.SetActive(false);
@@ -208,7 +220,13 @@ public class IPObserver : MonoBehaviour
         {
             livesObj[i].SetActive(false);
         }
-
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                enemies[i, j].SetActive(false);
+            }
+        }
         pBar.SetActive(false);
         
         foreach (GameObject go in GameObject.FindObjectsOfType(typeof(GameObject)))
@@ -218,6 +236,7 @@ public class IPObserver : MonoBehaviour
                 Destroy(go);
             }
         }
+        uShotHUD.SetActive(false);
         playerCon.gameObject.SetActive(false);
         moon.SetActive(true);
     }
@@ -231,6 +250,7 @@ public class IPObserver : MonoBehaviour
             EndLevel();
             points = 0;
             title.SetActive(true);
+            pointsText.gameObject.SetActive(false);
             return;
         }
         livesObj[hp - 1].SetActive(false);

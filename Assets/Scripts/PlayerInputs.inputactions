@@ -218,6 +218,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=2)"
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "fc3322b1-9f1e-493b-88f6-58578bf1947e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -328,6 +336,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Beam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2de2de7-a4cc-4148-b8b2-a1a64da0d919",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

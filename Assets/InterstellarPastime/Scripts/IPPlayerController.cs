@@ -15,6 +15,7 @@ public class IPPlayerController : MonoBehaviour
     private bool holdD;
     private bool holdS;
     private bool holdB;
+    private bool holdQ;
     private bool canShoot;
     private GameObject shield;
     private GameObject beam;
@@ -37,6 +38,7 @@ public class IPPlayerController : MonoBehaviour
         holdD = false;
         holdS = false;
         holdB = false;
+        holdQ = false;
         canShoot = false;
         shield = transform.GetChild(0).gameObject;
         beam = transform.GetChild(1).gameObject;
@@ -71,13 +73,6 @@ public class IPPlayerController : MonoBehaviour
         {
             charge++;
 
-            if (obs.shield && (obs.power >= 1.0f || obs.isDraining))
-            {
-                obs.Drain();
-                obs.isDraining = true;
-                obs.power -= 1.0f / 150.0f;
-                shield.SetActive(true);
-            }
 
             if (canShoot)
             {
@@ -150,6 +145,14 @@ public class IPPlayerController : MonoBehaviour
             uShotUI.SetLevel(0);
         }
 
+        if (holdQ && obs.shield && (obs.power >= 1.0f || obs.isDraining))
+        {
+            obs.Drain();
+            obs.isDraining = true;
+            obs.power -= 1.0f / 150.0f;
+            shield.SetActive(true);
+        }
+
         if (holdB && obs.beam && (obs.power >= 1.0f || obs.isDraining))
         {
             obs.Drain();
@@ -164,7 +167,7 @@ public class IPPlayerController : MonoBehaviour
             obs.isDraining = false;
             shield.SetActive(false);
         }
-        else if (!holdB || obs.power <= 0.0f)
+        else if ((!holdB && !holdQ) || obs.power <= 0.0f)
         {
             obs.isDraining = false;
             beam.SetActive(false);
@@ -230,6 +233,11 @@ public class IPPlayerController : MonoBehaviour
     void OnBeam()
     {
         holdB = !holdB;
+    }
+
+    void OnShield()
+    {
+        holdQ = !holdQ;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
