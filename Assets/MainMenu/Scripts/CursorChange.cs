@@ -20,16 +20,16 @@ public class CursorChange : MonoBehaviour
 
     public void SetPointer()
     {
-        Cursor.SetCursor(null, hotspot, cursorMode);
+        ///Cursor.SetCursor(null, hotspot, cursorMode);
     }
 
     public void SetHand()
     {
-        Cursor.SetCursor(hand, hotspot, cursorMode);
+        //Cursor.SetCursor(hand, hotspot, cursorMode);
     }
 
     public void SetGlass()
     {
-        Cursor.SetCursor(glass, hotspot, cursorMode);
+        //Cursor.SetCursor(glass, hotspot, cursorMode);
     }
 }

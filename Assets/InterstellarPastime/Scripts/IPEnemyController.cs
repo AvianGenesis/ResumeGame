@@ -23,6 +23,7 @@ public class IPEnemyController : MonoBehaviour
     public void Initialize(int health)
     {
         hp = health;
+        toDestroy = false;
         switch (hp)
         {
             case 1: val = 100;

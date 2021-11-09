@@ -58,7 +58,7 @@ public class IPObserver : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
-        points = 20000;
+        points = 0;
         level = 1;
         rows = 5;
         cols = 11;
@@ -249,6 +249,7 @@ public class IPObserver : MonoBehaviour
         {
             EndLevel();
             points = 0;
+            hp = 3;
             title.SetActive(true);
             pointsText.gameObject.SetActive(false);
             return;
@@ -324,6 +325,7 @@ public class IPObserver : MonoBehaviour
         {
             EndLevel();
             level++;
+            OneUp();
             shop.SetActive(true);
         }
     }
