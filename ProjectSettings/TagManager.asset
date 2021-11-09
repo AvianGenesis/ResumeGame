@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - GridSpace
+  - Bullet
+  - Enemy
+  - BoundaryL
+  - BoundaryR
+  - Boundary
+  - EBullet
   layers:
   - Default
   - TransparentFX
@@ -14,9 +20,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Bullet
+  - Enemy
   - 
   - 
   - 

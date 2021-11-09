@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 02b519686211c914ca9aac574a149bc4
+  - enabled: 1
+    path: Assets/Scenes/InterstellarPastime.unity
+    guid: 6b10d59df769c74479435a8984e0395a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bed4e402c2480714d8f65e7f58fc3377,
       type: 2}
