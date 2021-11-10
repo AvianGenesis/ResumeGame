@@ -67,6 +67,12 @@ public class Observer : MonoBehaviour
         }
     }
 
+    /* Quit */
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     /* Launch Game */
     public void PlayGame()
     {

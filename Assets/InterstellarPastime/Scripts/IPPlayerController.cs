@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class IPPlayerController : MonoBehaviour
 {
     private int uShotLevel;
+    private float tick;
     private float speed;
     private float charge;
     private float uShotP;
@@ -49,128 +51,133 @@ public class IPPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toAdd = Vector3.zero;
-        if (holdR && transform.position.x < 5.6f)
+        tick += Time.deltaTime;
+        if (tick >= 1f / 60f)
         {
-            toAdd += new Vector3(speed, 0.0f);
-        }
-        if (holdL && transform.position.x > -5.6f)
-        {
-            toAdd += new Vector3(-speed, 0.0f);
-        }
-        if (holdU && transform.position.y < -2.3f)
-        {
-            toAdd += new Vector3(0.0f, speed);
-        }
-        if (holdD && transform.position.y > -3.8f)
-        {
-            toAdd += new Vector3(0.0f, -speed);
-        }
-        transform.Translate(toAdd);
-        shield.SetActive(false);
-
-        if (holdS)
-        {
-            charge++;
-
-
-            if (canShoot)
+            tick = 0;
+            toAdd = Vector3.zero;
+            if (holdR && transform.position.x < 5.6f)
             {
-                canShoot = false;
-                if (obs.bulL && obs.tShot)
-                {
-                    obs.SubBul('L');
-                    GameObject newBul = Instantiate(bullet);
-                    newBul.GetComponent<BulletController>().speed = 0.12f;
-                    newBul.GetComponent<BulletController>().ch = 'L';
-                    newBul.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y + 0.045f);
-                }
-
-                if (obs.bulM)
-                {
-                    obs.SubBul('M');
-                    GameObject newBul = Instantiate(bullet);
-                    newBul.GetComponent<BulletController>().speed = 0.12f;
-                    newBul.GetComponent<BulletController>().ch = 'M';
-                    newBul.transform.position = new Vector2(transform.position.x, transform.position.y + 0.13f);
-                }
-
-                if (obs.bulR && obs.tShot)
-                {
-                    obs.SubBul('R');
-                    GameObject newBul = Instantiate(bullet);
-                    newBul.GetComponent<BulletController>().speed = 0.12f;
-                    newBul.GetComponent<BulletController>().ch = 'R';
-                    newBul.transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y + 0.045f);
-                }
+                toAdd += new Vector3(speed, 0.0f);
             }
-
-            if (obs.uShot)
+            if (holdL && transform.position.x > -5.6f)
             {
-                if (uShotLevel == 0)
-                {
-                    uShotP += 1.0f / 60.0f;
-                }
-                else if (uShotLevel == 1)
-                {
-                    uShotP += 1.0f / 120.0f;
-                }
-                else if (uShotLevel == 2)
-                {
-                    uShotP += 1.0f / 150.0f;
-                }
-
-
-                if (uShotP >= 1.0f)
-                {
-                    uShotP = 0.0f;
-                    uShotLevel++;
-                    uShotUI.SetLevel(uShotLevel);
-                }
-                else if(uShotLevel != 3)
-                {
-                    uShotUI.UpdateBar(uShotP);
-                }
+                toAdd += new Vector3(-speed, 0.0f);
             }
-        }
-
-        if (!holdS && obs.uShot)
-        {
-            if (uShotLevel > 0)
+            if (holdU && transform.position.y < -2.3f)
             {
-                UltiShot(uShotLevel);
+                toAdd += new Vector3(0.0f, speed);
             }
-            uShotP = 0.0f;
-            uShotLevel = 0;
-            uShotUI.SetLevel(0);
-        }
-
-        if (holdQ && obs.shield && (obs.power >= 1.0f || obs.isDraining))
-        {
-            obs.Drain();
-            obs.isDraining = true;
-            obs.power -= 1.0f / 150.0f;
-            shield.SetActive(true);
-        }
-
-        if (holdB && obs.beam && (obs.power >= 1.0f || obs.isDraining))
-        {
-            obs.Drain();
-            obs.isDraining = true;
-            obs.power -= 1.0f / 60.0f;
-            beam.SetActive(true);
-        }
-
-        if (!canShoot && !holdS)
-        {
-            canShoot = true;
-            obs.isDraining = false;
+            if (holdD && transform.position.y > -3.8f)
+            {
+                toAdd += new Vector3(0.0f, -speed);
+            }
+            transform.Translate(toAdd);
             shield.SetActive(false);
-        }
-        else if ((!holdB && !holdQ) || obs.power <= 0.0f)
-        {
-            obs.isDraining = false;
-            beam.SetActive(false);
+
+            if (holdS)
+            {
+                charge++;
+
+
+                if (canShoot)
+                {
+                    canShoot = false;
+                    if (obs.bulL && obs.tShot)
+                    {
+                        obs.SubBul('L');
+                        GameObject newBul = Instantiate(bullet);
+                        newBul.GetComponent<BulletController>().speed = 0.12f;
+                        newBul.GetComponent<BulletController>().ch = 'L';
+                        newBul.transform.position = new Vector2(transform.position.x - 0.3f, transform.position.y + 0.045f);
+                    }
+
+                    if (obs.bulM)
+                    {
+                        obs.SubBul('M');
+                        GameObject newBul = Instantiate(bullet);
+                        newBul.GetComponent<BulletController>().speed = 0.12f;
+                        newBul.GetComponent<BulletController>().ch = 'M';
+                        newBul.transform.position = new Vector2(transform.position.x, transform.position.y + 0.13f);
+                    }
+
+                    if (obs.bulR && obs.tShot)
+                    {
+                        obs.SubBul('R');
+                        GameObject newBul = Instantiate(bullet);
+                        newBul.GetComponent<BulletController>().speed = 0.12f;
+                        newBul.GetComponent<BulletController>().ch = 'R';
+                        newBul.transform.position = new Vector2(transform.position.x + 0.3f, transform.position.y + 0.045f);
+                    }
+                }
+
+                if (obs.uShot)
+                {
+                    if (uShotLevel == 0)
+                    {
+                        uShotP += 1.0f / 60.0f;
+                    }
+                    else if (uShotLevel == 1)
+                    {
+                        uShotP += 1.0f / 120.0f;
+                    }
+                    else if (uShotLevel == 2)
+                    {
+                        uShotP += 1.0f / 150.0f;
+                    }
+
+
+                    if (uShotP >= 1.0f)
+                    {
+                        uShotP = 0.0f;
+                        uShotLevel++;
+                        uShotUI.SetLevel(uShotLevel);
+                    }
+                    else if (uShotLevel != 3)
+                    {
+                        uShotUI.UpdateBar(uShotP);
+                    }
+                }
+            }
+
+            if (!holdS && obs.uShot)
+            {
+                if (uShotLevel > 0)
+                {
+                    UltiShot(uShotLevel);
+                }
+                uShotP = 0.0f;
+                uShotLevel = 0;
+                uShotUI.SetLevel(0);
+            }
+
+            if (holdQ && obs.shield && (obs.power >= 1.0f || obs.isDraining))
+            {
+                obs.Drain();
+                obs.isDraining = true;
+                obs.power -= 1.0f / 150.0f;
+                shield.SetActive(true);
+            }
+
+            if (holdB && obs.beam && (obs.power >= 1.0f || obs.isDraining))
+            {
+                obs.Drain();
+                obs.isDraining = true;
+                obs.power -= 1.0f / 60.0f;
+                beam.SetActive(true);
+            }
+
+            if (!canShoot && !holdS)
+            {
+                canShoot = true;
+                obs.isDraining = false;
+                shield.SetActive(false);
+            }
+            else if ((!holdB && !holdQ) || obs.power <= 0.0f)
+            {
+                obs.isDraining = false;
+                beam.SetActive(false);
+            }
         }
     }
 
@@ -206,38 +213,38 @@ public class IPPlayerController : MonoBehaviour
     }
 
 
-    void OnRight()
+    void OnRight(InputValue value)
     {
-        holdR = !holdR;
+        holdR = value.Get<float>() == 1;
     }
 
-    void OnLeft()
+    void OnLeft(InputValue value)
     {
-        holdL = !holdL;
+        holdL = value.Get<float>() == 1;
     }
 
-    void OnUp()
+    void OnUp(InputValue value)
     {
-        holdU = !holdU;
+        holdU = value.Get<float>() == 1;
     }
-    void OnDown()
+    void OnDown(InputValue value)
     {
-        holdD = !holdD;
-    }
-
-    void OnJump()
-    {
-        holdS = !holdS;
+        holdD = value.Get<float>() == 1;
     }
 
-    void OnBeam()
+    void OnJump(InputValue value)
     {
-        holdB = !holdB;
+        holdS = value.Get<float>() == 1;
     }
 
-    void OnShield()
+    void OnBeam(InputValue value)
     {
-        holdQ = !holdQ;
+        holdB = value.Get<float>() == 1;
+    }
+
+    void OnShield(InputValue value)
+    {
+        holdQ = value.Get<float>() == 1;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -259,5 +266,16 @@ public class IPPlayerController : MonoBehaviour
     public void ResetPos()
     {
         transform.position = new Vector2(0.0f, -3.7f);
+    }
+
+    public void ResetChar()
+    {
+        holdR = false;
+        holdL = false;
+        holdU = false;
+        holdD = false;
+        holdS = false;
+        holdB = false;
+        holdQ = false;
     }
 }

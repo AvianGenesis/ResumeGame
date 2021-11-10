@@ -31,6 +31,7 @@ public class IPObserver : MonoBehaviour
     private int enemiesAlive;
     private int cooldown;
     private int shootRate;
+    private float tick;
     private float pBarStart;
     private float pBarTick;
     private char prevDir;
@@ -61,7 +62,7 @@ public class IPObserver : MonoBehaviour
         points = 0;
         level = 1;
         rows = 5;
-        cols = 11;
+        cols = 3;
         speed = 90;
         frameTick = 0;
         hp = 3;
@@ -96,78 +97,83 @@ public class IPObserver : MonoBehaviour
     {
         if (isPlay)
         {
-            /* Move Enemies */
-            frameTick++;
-            if (frameTick >= speed)
+            tick += Time.deltaTime;
+            if (tick >= 1f / 60f)
             {
-                frameTick = 0;
-                if (enemDir != prevDir)
+                tick = 0f;
+                /* Move Enemies */
+                frameTick++;
+                if (frameTick >= speed)
                 {
-                    prevDir = enemDir;
-                    for (int i = 0; i < rows; i++)
+                    frameTick = 0;
+                    if (enemDir != prevDir)
                     {
-                        for (int j = 0; j < cols; j++)
+                        prevDir = enemDir;
+                        for (int i = 0; i < rows; i++)
                         {
-                            enemies[i, j].GetComponent<IPEnemyController>().MoveDown();
+                            for (int j = 0; j < cols; j++)
+                            {
+                                enemies[i, j].GetComponent<IPEnemyController>().MoveDown();
+                            }
+                        }
+                    }
+                    else if (enemDir == 'r')
+                    {
+                        for (int i = 0; i < rows; i++)
+                        {
+                            for (int j = 0; j < cols; j++)
+                            {
+                                enemies[i, j].GetComponent<IPEnemyController>().MoveRight();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < rows; i++)
+                        {
+                            for (int j = 0; j < cols; j++)
+                            {
+                                enemies[i, j].GetComponent<IPEnemyController>().MoveLeft();
+                            }
                         }
                     }
                 }
-                else if (enemDir == 'r')
-                {
-                    for (int i = 0; i < rows; i++)
-                    {
-                        for (int j = 0; j < cols; j++)
-                        {
-                            enemies[i, j].GetComponent<IPEnemyController>().MoveRight();
-                        }
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < rows; i++)
-                    {
-                        for (int j = 0; j < cols; j++)
-                        {
-                            enemies[i, j].GetComponent<IPEnemyController>().MoveLeft();
-                        }
-                    }
-                }
-            }
 
-            /* Trigger Shooting */
-            cooldown++;
-            if (cooldown >= shootRate)
-            {
-                while (cooldown != 0)
+                /* Trigger Shooting */
+                cooldown++;
+                if (cooldown >= shootRate)
                 {
-                    int x = UnityEngine.Random.Range(0, rows);
-                    int y = UnityEngine.Random.Range(0, cols);
-                    if (enemies[x, y].activeSelf)
+                    while (cooldown != 0)
                     {
-                        enemies[x, y].GetComponent<IPEnemyController>().Shoot();
-                        cooldown = 0;
+                        int x = UnityEngine.Random.Range(0, rows);
+                        int y = UnityEngine.Random.Range(0, cols);
+                        if (enemies[x, y].activeSelf)
+                        {
+                            enemies[x, y].GetComponent<IPEnemyController>().Shoot();
+                            cooldown = 0;
+                        }
                     }
                 }
-            }
 
-            /* Incr Power */
-            if (shield || beam)
-            {
-                if (power < 1.0f && !isDraining)
+                /* Incr Power */
+                if (shield || beam)
                 {
-                    power += 1.0f / 600.0f;
+                    if (power < 1.0f && !isDraining)
+                    {
+                        power += 1.0f / 600.0f;
+                    }
+                    else if (power < 0.0f)
+                    {
+                        isDraining = false;
+                    }
+                    else if (power >= 1.0f)
+                    {
+                        pBarTick += (float)Math.PI / 60.0f;
+                        pBar.transform.position = new Vector2(pBar.transform.position.x, pBarStart + (float)Math.Sin(pBarTick) * 2.0f);
+                        barReady.SetActive(true);
+                    }
+                    pBarSlider.value = power;
                 }
-                else if (power < 0.0f)
-                {
-                    isDraining = false;
-                }
-                else if (power >= 1.0f)
-                {
-                    pBarTick += (float)Math.PI / 60.0f;
-                    pBar.transform.position = new Vector2(pBar.transform.position.x, pBarStart + (float)Math.Sin(pBarTick) * 2.0f);
-                    barReady.SetActive(true);
-                }
-                pBarSlider.value = power;
             }
         }
     }
@@ -236,7 +242,12 @@ public class IPObserver : MonoBehaviour
                 Destroy(go);
             }
         }
+        tShot = false;
+        shield = false;
+        beam = false;
+        uShot = false;
         uShotHUD.SetActive(false);
+        playerCon.ResetChar();
         playerCon.gameObject.SetActive(false);
         moon.SetActive(true);
     }

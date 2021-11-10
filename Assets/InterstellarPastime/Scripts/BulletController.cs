@@ -8,6 +8,7 @@ public class BulletController : MonoBehaviour
     [NonSerialized] public float speed;
     [NonSerialized] public char ch;
 
+    private float tick;
     private IPObserver obs;
 
     // Start is called before the first frame update
@@ -19,11 +20,16 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.0f, speed, 0.0f);
-        if(transform.position.y > 5.2f)
+        tick += Time.deltaTime;
+        if (tick >= 1f / 60f)
         {
-            obs.AddBul(ch);
-            Destroy(this.gameObject);
+            tick = 0f;
+            transform.Translate(0.0f, speed, 0.0f);
+            if (transform.position.y > 5.2f)
+            {
+                obs.AddBul(ch);
+                Destroy(this.gameObject);
+            }
         }
     }
 

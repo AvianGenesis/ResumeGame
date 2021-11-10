@@ -7,6 +7,7 @@ public class EnemyBulletController : MonoBehaviour
 {
     [NonSerialized] public float speed;
 
+    private float tick;
     private IPObserver obs;
 
     // Start is called before the first frame update
@@ -18,10 +19,15 @@ public class EnemyBulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.0f, speed, 0.0f);
-        if (transform.position.y < -5.2f)
+        tick += Time.deltaTime;
+        if (tick >= 1f / 60f)
         {
-            Destroy(this.gameObject);
+            tick = 0f;
+            transform.Translate(0.0f, speed, 0.0f);
+            if (transform.position.y < -5.2f)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
